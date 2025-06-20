@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts - Elouisa</title>
+</head>
+
+<body style="background-color: rgb(248, 230, 230); margin: 0; padding: 0; font-family: 'Courier New', monospace;">
+    
+    <!-- Fixed white rectangular box at the top with navigation -->
+    <div style="background-color: white; width: 100%; height: 55px; border-bottom: 2px solid #333; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: flex-end; padding-right: 40px; position: fixed; top: 0; z-index: 1000;">
+        <!-- Top right navigation -->
+        <nav style="display: flex; gap: 10px; padding-right: 20px;">
+            <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+                home
+            </a>
+            <a href="post.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid #ffc0cb; border-radius: 20px; transition: all 0.3s ease; background-color: #ffc0cb;">
+                post
+            </a>
+            <a href="about.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+                about me
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div style="margin-top: 60px; padding: 40px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        
+        <!-- Header Section -->
+        <div style="text-align: center; margin-bottom: 50px; padding: 30px 20px;">
+            <h1 style="font-size: 2.5rem; color: #333; margin: 0 0 15px 0; font-weight: bold; text-decoration: underline; text-decoration-style: dotted; text-decoration-color: #ff8c00;">
+                My Industrial Visit Journey🏢
+            </h1>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.6; margin: 0;">
+                Click on each company to read about my amazing experiences across 6 different tech companies!
+            </p>
+        </div>
+
+        <!-- Company Cards Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+            
+            <!-- FOUNDEVER PH -->
+            <div class="company-card" onclick="openModal('foundever')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(1deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; left: -5px; background: #ff8c00; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        🚀 Foundever Philippines
+                    </h2>
+                </div>
+                
+                <span style="background: #ffeb3b; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 1 AM • June 09, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                   A BPO with decades of leadership in the customer experience industry!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                     <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Customer Service Associate</span>
+
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+            <!-- Google Card -->
+            <div class="company-card" onclick="openModal('google')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(-1deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; right: -5px; background: #e91e63; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        📊 Google Philippines
+                    </h2>
+                </div>
+                
+                <span style="background: #4caf50; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 1 PM • June 09, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                    A company focusing on online advertising, search engine technology, cloud computing, computer software and more!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                    <span style="background: #fff3e0; padding: 2px 6px; border: 1px solid #ff9800; border-radius: 8px; font-size: 0.7rem;">Python</span>
+                    <span style="background: #e8f5e8; padding: 2px 6px; border: 1px solid #4caf50; border-radius: 8px; font-size: 0.7rem;">Pandas</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border: 1px solid #2196f3; border-radius: 8px; font-size: 0.7rem;">TensorFlow</span>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+            <!-- CloudNine Card -->
+            <div class="company-card" onclick="openModal('cloudnine')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(0.5deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; left: -5px; background: #007bff; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        ☁️ CloudNine Systems
+                    </h2>
+                </div>
+                
+                <span style="background: #2196f3; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 3 • Jan 17, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                    Cloud infrastructure spanning 3 continents with amazing DevOps automation!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                    <span style="background: #fff3e0; padding: 2px 6px; border: 1px solid #ff9800; border-radius: 8px; font-size: 0.7rem;">AWS</span>
+                    <span style="background: #e8f5e8; padding: 2px 6px; border: 1px solid #4caf50; border-radius: 8px; font-size: 0.7rem;">Terraform</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border: 1px solid #2196f3; border-radius: 8px; font-size: 0.7rem;">Jenkins</span>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+            <!-- InnovateLab Card -->
+            <div class="company-card" onclick="openModal('innovatelab')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(-0.5deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; right: -5px; background: #4caf50; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        🧪 InnovateLab
+                    </h2>
+                </div>
+                
+                <span style="background: #9c27b0; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 4 • Jan 18, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                    Cutting-edge AR/VR development and mobile app innovation lab experience!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                    <span style="background: #e8f5e8; padding: 2px 6px; border: 1px solid #4caf50; border-radius: 8px; font-size: 0.7rem;">Unity</span>
+                    <span style="background: #fff3e0; padding: 2px 6px; border: 1px solid #ff9800; border-radius: 8px; font-size: 0.7rem;">Flutter</span>
+                    <span style="background: #f3e5f5; padding: 2px 6px; border: 1px solid #9c27b0; border-radius: 8px; font-size: 0.7rem;">AR Core</span>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+            <!-- CyberShield Card -->
+            <div class="company-card" onclick="openModal('cybershield')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(1.5deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; left: -5px; background: #dc3545; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        🛡️ CyberShield Security
+                    </h2>
+                </div>
+                
+                <span style="background: #dc3545; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 5 • Jan 19, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                    Ethical hacking workshops and advanced cybersecurity threat detection systems!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                    <span style="background: #ffebee; padding: 2px 6px; border: 1px solid #dc3545; border-radius: 8px; font-size: 0.7rem;">Kali Linux</span>
+                    <span style="background: #e8f5e8; padding: 2px 6px; border: 1px solid #4caf50; border-radius: 8px; font-size: 0.7rem;">Wireshark</span>
+                    <span style="background: #fff3e0; padding: 2px 6px; border: 1px solid #ff9800; border-radius: 8px; font-size: 0.7rem;">Metasploit</span>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+            <!-- GameForge Card -->
+            <div class="company-card" onclick="openModal('gameforge')" style="background: white; padding: 25px; border: 3px solid #333; transform: rotate(-1.5deg); box-shadow: 5px 5px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease;">
+                <div style="position: absolute; top: -5px; right: -5px; background: #6f42c1; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+                
+                <div style="display: flex; justify-content: between; align-items: flex-start; margin-bottom: 15px;">
+                    <h2 style="font-size: 1.5rem; color: #333; margin: 0; font-weight: bold;">
+                        🎮 GameForge Studios
+                    </h2>
+                </div>
+                
+                <span style="background: #6f42c1; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;">
+                    Day 6 • Jan 20, 2025
+                </span>
+                
+                <p style="font-size: 0.9rem; color: #333; line-height: 1.5; margin: 0 0 15px 0;">
+                    Epic game development pipeline and multiplayer networking architecture!
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px;">
+                    <span style="background: #e8f5e8; padding: 2px 6px; border: 1px solid #4caf50; border-radius: 8px; font-size: 0.7rem;">Unity</span>
+                    <span style="background: #f3e5f5; padding: 2px 6px; border: 1px solid #9c27b0; border-radius: 8px; font-size: 0.7rem;">C#</span>
+                    <span style="background: #e3f2fd; padding: 2px 6px; border: 1px solid #2196f3; border-radius: 8px; font-size: 0.7rem;">Photon</span>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: #666; margin: 0; font-style: italic;">
+                    Click to read more →
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Final Reflection -->
+        <div style="background: #ffc0cb; padding: 30px; border: 3px dashed #333; text-align: center; margin-top: 40px;">
+            <h2 style="font-size: 1.8rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">
+                🌟 What an Amazing Journey!
+            </h2>
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 20px 0;">
+                Six incredible companies, each with their unique approach to technology! From containerization to cybersecurity, from game development to machine learning - this journey has opened my eyes to the endless possibilities in tech! 🚀
+            </p>
+            <a href="about.html" style="background: white; color: #333; padding: 12px 24px; border: 2px solid #333; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">
+                📖 Learn More About Me
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; overflow-y: auto;">
+        
+        <!-- FOUNDEVER Modal -->
+        <div id="foundever-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #ff8c00; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer;">×</button>
+            
+            <div style="position: absolute; top: -5px; left: -5px; background: #ff8c00; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">🚀 Foundever Philippines</h2>
+            <span style="background: #ffeb3b; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 1 • Jan 15, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                <span style="background: #ffc0cb; padding: 1px 3px; font-weight: bold;">MIND = BLOWN!</span> 
+                Foundevers global team consists of 170K agents fluent in +60 languages working from +120 on-site and hybrid locations spanning 45 countries. With expertise in all industries and business stages, we deliver more than nine million customer experiences for +750 brands every single day.
+            </p>
+            
+            <div style="border-left: 4px solid #4caf50; padding-left: 15px; margin: 20px 0; background: #f8f9fa; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">💡 Highlights</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">"If you want something, stand up, leave the crowd and get it yourself" - Sir CQ</li>
+                    <span style="font-weight: bold; color: #333;">My own take:</span><span style="margin-bottom: 5px;"> This phrase really struck a chord with me. It sounds so simple, yet it’s one of the hardest things to do — knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears. The thoughts of failure, of making the wrong move, and all that self-doubt will creep in. But that’s exactly the point. It’s about standing up anyway, pushing through those doubts and fears, and choosing yourself — for everything you truly want. </span>
+                </ul>
+            </div>
+            
+            <div style="border-left: 4px solid #4caf50; padding-left: 15px; margin: 20px 0; background: #f8f9fa; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">💡 Highlights</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">"Q: Will AI replace me in the workplace?</li>
+                    <span>A: No — if you know how to leverage it.</span><br><br>
+                    <span style="font-weight: bold; color: #333;">My own take:</span><span>  AI is just a tool. When you embrace it and use it to enhance your skills, you’ll stay valuable. It will never have the creativity, intuition, and personal touch that you do. It’s not about competing with AI — it’s about working alongside it to do better, smarter, and more original work.</span>
+                </ul>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Job Offer:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                     <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Customer Service Associate</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 Foundever Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="company_img/foundever1.jpg" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Foundever Philippines, Technopoint Building, Pasig City</p>
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="company_img/foundever2.jpg" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Group Picture</p>
+                        </div>
+                    </div>
+
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="company_img/foundever3.jpg" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Another group picture❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+        <!-- DataFlow Modal -->
+        <div id="google-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #e91e63; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer; color: white;">×</button>
+            
+            <div style="position: absolute; top: -5px; right: -5px; background: #e91e63; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📊 Google Philippines</h2>
+            <span style="background: #4caf50; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 2 • Jan 16, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                Holy data visualization, Batman! 📈 DataFlow's dashboard was like something out of a sci-fi movie. They process <span style="background: yellow; padding: 1px 3px; font-weight: bold;">MILLIONS</span> of data points in real-time and their Python-based analytics engine is just *chef's kiss* 👌
+            </p>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                The coolest part? They let me sit in on a machine learning model training session. Watching the accuracy improve in real-time was absolutely mesmerizing!
+            </p>
+            
+            <div style="border-left: 4px solid #ff8c00; padding-left: 15px; margin: 20px 0; background: #fff8e1; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">🎯 What I Learned:</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Data preprocessing is 80% of the ML workflow</li>
+                    <li style="margin-bottom: 5px;">Pandas + NumPy = Data scientist's best friends</li>
+                    <li style="margin-bottom: 5px;">Real-time dashboards need serious optimization</li>
+                    <li style="margin-bottom: 5px;">Clean data architecture is EVERYTHING</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Full Tech Stack:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                    <span style="background: #fff3e0; padding: 5px 10px; border: 1px solid #ff9800; border-radius: 12px; font-size: 0.9rem;">Python</span>
+                    <span style="background: #e8f5e8; padding: 5px 10px; border: 1px solid #4caf50; border-radius: 12px; font-size: 0.9rem;">Pandas</span>
+                    <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">TensorFlow</span>
+                    <span style="background: #fce4ec; padding: 5px 10px; border: 1px solid #e91e63; border-radius: 12px; font-size: 0.9rem;">PostgreSQL</span>
+                    <span style="background: #f3e5f5; padding: 5px 10px; border: 1px solid #9c27b0; border-radius: 12px; font-size: 0.9rem;">Apache Kafka</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 Google Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Example placeholder - replace with your actual images -->
+                    <div style="border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0;">Add your<br>DataFlow images<br>here</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+        <!-- CloudNine Modal -->
+        <div id="cloudnine-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #007bff; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer; color: white;">×</button>
+            
+            <div style="position: absolute; top: -5px; left: -5px; background: #007bff; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">☁️ CloudNine Systems</h2>
+            <span style="background: #2196f3; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 3 • Jan 17, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                Cloud computing just became 100x more interesting! ☁️ CloudNine's infrastructure spans across 3 continents, and they manage it all through automated scripts and monitoring systems. Their DevOps culture is something I definitely want to adopt in my future projects.
+            </p>
+            
+            <div style="background: #e1f5fe; border-left: 4px solid #2196f3; padding: 20px; margin: 20px 0; font-style: italic;">
+                <p style="font-size: 1.1rem; color: #333; margin: 0; line-height: 1.5;">
+                    "The best code is the code that maintains itself" - Senior DevOps Engineer at CloudNine
+                </p>
+            </div>
+            
+            <div style="border-left: 4px solid #2196f3; padding-left: 15px; margin: 20px 0; background: #f8f9fa; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">⚡ Mind-Blowing Moments:</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Auto-scaling servers based on traffic patterns</li>
+                    <li style="margin-bottom: 5px;">Infrastructure as Code (IaC) with Terraform</li>
+                    <li style="margin-bottom: 5px;">24/7 monitoring with custom alerting systems</li>
+                    <li style="margin-bottom: 5px;">Zero-downtime deployments are actually possible!</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Full Tech Stack:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                    <span style="background: #fff3e0; padding: 5px 10px; border: 1px solid #ff9800; border-radius: 12px; font-size: 0.9rem;">AWS</span>
+                    <span style="background: #e8f5e8; padding: 5px 10px; border: 1px solid #4caf50; border-radius: 12px; font-size: 0.9rem;">Terraform</span>
+                    <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Jenkins</span>
+                    <span style="background: #fce4ec; padding: 5px 10px; border: 1px solid #e91e63; border-radius: 12px; font-size: 0.9rem;">Prometheus</span>
+                    <span style="background: #f3e5f5; padding: 5px 10px; border: 1px solid #9c27b0; border-radius: 12px; font-size: 0.9rem;">Grafana</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 CloudNine Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Example placeholder - replace with your actual images -->
+                    <div style="border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0;">Add your<br>CloudNine images<br>here</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+        <!-- InnovateLab Modal -->
+        <div id="innovatelab-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #4caf50; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer; color: white;">×</button>
+            
+            <div style="position: absolute; top: -5px; right: -5px; background: #4caf50; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">🧪 InnovateLab</h2>
+            <span style="background: #9c27b0; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 4 • Jan 18, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                Welcome to the future! 🚀 InnovateLab is where cutting-edge AR/VR meets mobile innovation. I got to try on their latest AR headset and literally saw digital objects floating in the real world. The mobile apps they're building with Flutter are incredibly smooth and beautiful!
+            </p>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                The coolest part was seeing their Unity-based VR training simulations for medical students. Imagine learning surgery in a completely safe virtual environment!
+            </p>
+            
+            <div style="border-left: 4px solid #4caf50; padding-left: 15px; margin: 20px 0; background: #f1f8e9; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">🎮 Amazing Discoveries:</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">AR can overlay digital info on real-world objects</li>
+                    <li style="margin-bottom: 5px;">Flutter makes cross-platform development a breeze</li>
+                    <li style="margin-bottom: 5px;">Unity is not just for games - it's for serious apps too!</li>
+                    <li style="margin-bottom: 5px;">VR training is revolutionizing education</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Full Tech Stack:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                    <span style="background: #e8f5e8; padding: 5px 10px; border: 1px solid #4caf50; border-radius: 12px; font-size: 0.9rem;">Unity</span>
+                    <span style="background: #fff3e0; padding: 5px 10px; border: 1px solid #ff9800; border-radius: 12px; font-size: 0.9rem;">Flutter</span>
+                    <span style="background: #f3e5f5; padding: 5px 10px; border: 1px solid #9c27b0; border-radius: 12px; font-size: 0.9rem;">AR Core</span>
+                    <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Oculus SDK</span>
+                    <span style="background: #fce4ec; padding: 5px 10px; border: 1px solid #e91e63; border-radius: 12px; font-size: 0.9rem;">Firebase</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 InnovateLab Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Example placeholder - replace with your actual images -->
+                    <div style="border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0;">Add your<br>InnovateLab images<br>here</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+        <!-- CyberShield Modal -->
+        <div id="cybershield-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #dc3545; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer; color: white;">×</button>
+            
+            <div style="position: absolute; top: -5px; left: -5px; background: #dc3545; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">🛡️ CyberShield Security</h2>
+            <span style="background: #dc3545; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 5 • Jan 19, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                <span style="background: #ffebee; padding: 1px 3px; font-weight: bold; color: #dc3545;">SECURITY ALERT!</span> 
+                CyberShield opened my eyes to the dark side of the internet - but in the best way possible! Their ethical hacking workshops were absolutely mind-blowing. I learned how to think like a hacker to better protect systems.
+            </p>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                The coolest part? They let me participate in a live penetration testing session on their sandbox environment. Watching real-time threat detection was like being in a cybersecurity movie!
+            </p>
+            
+            <div style="border-left: 4px solid #dc3545; padding-left: 15px; margin: 20px 0; background: #ffebee; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">🔒 Security Insights:</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Social engineering is the biggest security threat</li>
+                    <li style="margin-bottom: 5px;">Network monitoring is crucial for early detection</li>
+                    <li style="margin-bottom: 5px;">Zero-trust architecture is the future</li>
+                    <li style="margin-bottom: 5px;">Regular security audits prevent major breaches</li>
+                </ul>
+            </div>
+            
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; font-style: italic;">
+                <p style="font-size: 1.1rem; color: #333; margin: 0; line-height: 1.5;">
+                    "The best defense is understanding how attacks work" - Chief Security Officer at CyberShield
+                </p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Security Tech Stack:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                    <span style="background: #ffebee; padding: 5px 10px; border: 1px solid #dc3545; border-radius: 12px; font-size: 0.9rem;">Kali Linux</span>
+                    <span style="background: #e8f5e8; padding: 5px 10px; border: 1px solid #4caf50; border-radius: 12px; font-size: 0.9rem;">Wireshark</span>
+                    <span style="background: #fff3e0; padding: 5px 10px; border: 1px solid #ff9800; border-radius: 12px; font-size: 0.9rem;">Metasploit</span>
+                    <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Nmap</span>
+                    <span style="background: #f3e5f5; padding: 5px 10px; border: 1px solid #9c27b0; border-radius: 12px; font-size: 0.9rem;">Burp Suite</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 CyberShield Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Example placeholder - replace with your actual images -->
+                    <div style="border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0;">Add your<br>CyberShield images<br>here</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+        <!-- GameForge Modal -->
+        <div id="gameforge-modal" class="modal-content" style="display: none; background: white; margin: 50px auto; padding: 40px; max-width: 800px; border: 3px solid #333; box-shadow: 10px 10px 0px #333; position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: #6f42c1; border: 2px solid #333; border-radius: 50%; width: 35px; height: 35px; font-size: 18px; font-weight: bold; cursor: pointer; color: white;">×</button>
+            
+            <div style="position: absolute; top: -5px; right: -5px; background: #6f42c1; width: 15px; height: 15px; transform: rotate(45deg);"></div>
+            
+            <h2 style="font-size: 2rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">🎮 GameForge Studios</h2>
+            <span style="background: #6f42c1; color: white; padding: 5px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.9rem; display: inline-block; margin-bottom: 20px;">Day 6 • Jan 20, 2025</span>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                <span style="background: #f3e5f5; padding: 1px 3px; font-weight: bold; color: #6f42c1;">GAME ON!</span> 
+                GameForge Studios was like stepping into a digital playground! Their game development pipeline is absolutely incredible - from concept art to multiplayer networking, every step was fascinating to watch.
+            </p>
+            
+            <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0;">
+                The highlight? I got to playtest their upcoming RPG and even contributed ideas for character mechanics! Seeing how player feedback directly influences game design was amazing.
+            </p>
+            
+            <div style="border-left: 4px solid #6f42c1; padding-left: 15px; margin: 20px 0; background: #f8f5ff; padding: 15px;">
+                <h3 style="font-size: 1.2rem; color: #333; margin: 0 0 10px 0; font-weight: bold;">🎯 Game Dev Secrets:</h3>
+                <ul style="margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 5px;">Player experience comes before technical perfection</li>
+                    <li style="margin-bottom: 5px;">Multiplayer networking is incredibly complex</li>
+                    <li style="margin-bottom: 5px;">Game balancing requires constant iteration</li>
+                    <li style="margin-bottom: 5px;">Art and code must work in perfect harmony</li>
+                </ul>
+            </div>
+            
+            <div style="background: #e8f5e8; border-left: 4px solid #4caf50; padding: 20px; margin: 20px 0; font-style: italic;">
+                <p style="font-size: 1.1rem; color: #333; margin: 0; line-height: 1.5;">
+                    "Great games are built on great teams, not just great code" - Lead Game Designer at GameForge
+                </p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-size: 0.9rem; color: #666; margin: 0 0 10px 0; font-weight: bold;">Game Dev Tech Stack:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+                    <span style="background: #e8f5e8; padding: 5px 10px; border: 1px solid #4caf50; border-radius: 12px; font-size: 0.9rem;">Unity</span>
+                    <span style="background: #f3e5f5; padding: 5px 10px; border: 1px solid #9c27b0; border-radius: 12px; font-size: 0.9rem;">C#</span>
+                    <span style="background: #e3f2fd; padding: 5px 10px; border: 1px solid #2196f3; border-radius: 12px; font-size: 0.9rem;">Photon</span>
+                    <span style="background: #fff3e0; padding: 5px 10px; border: 1px solid #ff9800; border-radius: 12px; font-size: 0.9rem;">Blender</span>
+                    <span style="background: #ffebee; padding: 5px 10px; border: 1px solid #dc3545; border-radius: 12px; font-size: 0.9rem;">Git LFS</span>
+                </div>
+            </div>
+
+            <!-- ========== IMAGES SECTION - ADD YOUR IMAGES HERE ========== -->
+            <div style="border-top: 2px dashed #333; padding-top: 20px; margin-top: 30px;">
+                <h3 style="font-size: 1.3rem; color: #333; margin: 0 0 15px 0; font-weight: bold;">📸 GameForge Visit Photos</h3>
+                
+                <!-- Image Grid Container - Add your images here -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    
+                    <!-- TEMPLATE: Copy this structure for each image you want to add -->
+                    <!-- 
+                    <div style="border: 2px solid #333; border-radius: 8px; overflow: hidden; background: white; box-shadow: 3px 3px 0px #333;">
+                        <img src="YOUR_IMAGE_URL_HERE" alt="Description" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 10px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #333; font-weight: bold;">Your caption here</p>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- Example placeholder - replace with your actual images -->
+                    <div style="border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0;">Add your<br>GameForge images<br>here</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- ========== END IMAGES SECTION ========== -->
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer style="padding: 40px 0; width: 80%; margin: 0 auto;">
+        
+        <!-- Top border line - Full screen width -->
+        <hr style="border: none; border-top: 2px solid #333; margin: 0 0 30px 0; width: 100%;">
+        
+        <!-- Container for content -->
+        <div style="max-width: 2300px; margin: 0 auto; padding: 0 20px;">
+            
+            <!-- Main footer content -->
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+                
+                <!-- Left side text -->
+                <div>
+                    <p style="margin: 0 0 10px 0; font-size: 18px; color: #333; font-weight: normal;">
+                        Appreciate you stopping by!
+                    </p>
+                    <p style="margin: 0; font-size: 18px; font-weight: bold;">
+                        <span style="color: #ff8c00;">Ready</span> 
+                        <span style="color: #333;">to</span> 
+                        <span style="color: #007bff;">team up</span><span style="color: #333;">? Let's</span> 
+                        <span style="color: #333;">create</span> 
+                        <span style="color: #e91e63;">something awesome</span> 
+                        <span style="color: #333;">together!</span>
+                    </p>
+                </div>
+                
+                <!-- Right side icons -->
+                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 15px;">
+                    
+                    <!-- Social icons -->
+                    <div style="display: flex; gap: 10px;">
+                        <a href="mailto:" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 18px;">
+                            ✉
+                        </a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-weight: bold; font-size: 14px;">
+                            in
+                        </a>
+                        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 18px;">
+                            📷
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom copyright line -->
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
+                <p style="margin: 0; font-size: 16px; color: #666;">
+                    Made with ❤️🎵 by Elouisa © 2025
+                </p>
+            </div>
+        </div>
+        
+    </footer>
+
+    <!-- JavaScript for Modal functionality -->
+    <script>
+        function openModal(companyId) {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById(companyId + '-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            // Hide all modals
+            const modals = document.querySelectorAll('.modal-content');
+            modals.forEach(modal => modal.style.display = 'none');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Close modal when clicking outside of it
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <!-- Add hover effects with CSS -->
+    <style>
+        nav a:hover {
+            background-color: #ffc0cb !important;
+            border: 2px solid #333 !important;
+            transform: translateY(-2px);
+        }
+        
+        .company-card:hover {
+            transform: rotate(0deg) scale(1.05) !important;
+            box-shadow: 8px 8px 0px #333 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+
+</body>
+</html>
