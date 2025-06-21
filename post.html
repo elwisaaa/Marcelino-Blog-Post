@@ -4,651 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Industrial Visit Journey - Elouisa</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: rgb(254, 226, 226);
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
-        }
-
-  
-
-        /* Main Content */
-        .main-content {
-            margin-top: 65px;
-            padding: 30px 15px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 25px 15px;
-        }
-
-        .header h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-decoration-color: #ff8c00;
-            text-decoration-thickness: 2px;
-        }
-
-        .header p {
-            font-size: 1rem;
-            color: #555;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* Company Grid */
-        .company-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .company-card {
-            background: white;
-            padding: 20px;
-            border: 2px solid #333;
-            box-shadow: 4px 4px 0px #333;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-        }
-
-        .company-card:hover {
-            transform: rotate(0deg) scale(1.02);
-            box-shadow: 6px 6px 0px #333;
-        }
-
-        .company-card.rotate-1 { transform: rotate(1deg); }
-        .company-card.rotate-neg1 { transform: rotate(-1deg); }
-        .company-card.rotate-0-5 { transform: rotate(0.5deg); }
-        .company-card.rotate-neg0-5 { transform: rotate(-0.5deg); }
-        .company-card.rotate-1-5 { transform: rotate(1.5deg); }
-        .company-card.rotate-neg1-5 { transform: rotate(-1.5deg); }
-
-        .corner-accent {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            transform: rotate(45deg);
-        }
-
-        .corner-accent.top-left { top: -1px; left: -1px; }
-        .corner-accent.top-right { top: -1px; right: -1px; }
-
-        .company-title {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .date-badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border: 2px solid #333;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
-            color: white;
-        }
-
-        .company-description {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 15px;
-        }
-
-        .tag {
-            background: #f0f0f0;
-            padding: 3px 8px;
-            border: 1px solid #999;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            color: #333;
-        }
-
-        .read-more {
-            font-size: 0.8rem;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Color Classes */
-        .bg-orange { background-color: #ff8c00; }
-        .bg-pink { background-color: #e91e63; }
-        .bg-blue { background-color: #2196f3; }
-        .bg-green { background-color: #4caf50; }
-        .bg-red { background-color: #dc3545; }
-        .bg-purple { background-color: #6f42c1; }
-
-        /* Final Reflection */
-        .final-reflection {
-            background: #ffc0cb;
-            padding: 25px;
-            border: 2px dashed #333;
-            text-align: center;
-            margin: 40px 0;
-            border-radius: 8px;
-        }
-
-        .final-reflection h2 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .final-reflection p {
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background: white;
-            color: #333;
-            padding: 10px 20px;
-            border: 2px solid #333;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 3px 3px 0px #333;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            box-shadow: 4px 4px 0px #333;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 2px solid #333;
-            padding: 30px 15px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-text {
-            flex: 1;
-        }
-
-        .footer-text p:first-child {
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .footer-text p:last-child {
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            border: 2px solid #333;
-            border-radius: 50%;
-            color: #333;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background-color: #ffc0cb;
-            transform: translateY(-1px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
-
-        .footer-bottom p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 15px;
-        }
-
-        .modal-content {
-            background: white;
-            margin: 30px auto;
-            padding: 30px;
-            max-width: 700px;
-            border: 2px solid #333;
-            box-shadow: 8px 8px 0px #333;
-            position: relative;
-            border-radius: 8px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            border: 2px solid #333;
-            border-radius: 50%;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            transform: scale(1.1);
-        }
-
-        .modal-title {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .modal-date {
-            display: inline-block;
-            padding: 8px 15px;
-            border: 2px solid #333;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .modal-text {
-            font-size: 0.95rem;
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-            border: 2px solid #c084fc;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #c084fc, #a855f7);
-            border-radius: 0 2px 2px 0;
-        }
-
-        .highlight-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            margin-left: 10px;
-        }
-
-        .highlight-icon {
-            background: #c084fc;
-            color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-size: 14px;
-        }
-
-        .highlight-title {
-            font-size: 1.1rem;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .quote-box {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid #c084fc;
-            margin: 15px 10px;
-            position: relative;
-        }
-
-        .quote-text {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #444;
-            font-style: italic;
-            margin: 0;
-        }
-
-        .quote-author {
-            font-size: 0.8rem;
-            color: #666;
-            text-align: right;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        .takeaway-box {
-            background: #f8fafc;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
-            margin: 15px 10px 0 10px;
-        }
-
-        .takeaway-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .takeaway-badge {
-            background: #a855f7;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .takeaway-text {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: #475569;
-            margin: 0;
-        }
-
-        /* Image Gallery Styles */
-        .image-gallery {
-            border-top: 2px dashed #333;
-            padding-top: 15px;
-            margin-top: 20px;
-        }
-
-        .image-gallery h3 {
-            font-size: 1.1rem;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-        }
-
-        .image-card {
-            border: 2px solid #333;
-            border-radius: 6px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 2px 2px 0px #333;
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .image-caption {
-            padding: 8px;
-        }
-
-        .image-caption p {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .placeholder-image {
-            border: 2px dashed #ccc;
-            border-radius: 6px;
-            background: #f9f9f9;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .placeholder-text {
-            color: #999;
-            font-style: italic;
-            text-align: center;
-            margin: 0;
-            font-size: 0.8rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .company-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .modal-content {
-                margin: 15px auto;
-                padding: 20px 15px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-
-            .image-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            }
-        }
-    </style>
 </head>
-<body>
-    <!-- Navigation -->
+<body style="margin: 0; padding: 0; box-sizing: border-box; background-color: rgb(254, 226, 226); font-family: 'Courier New', monospace; line-height: 1.5;">
     <!-- Fixed white rectangular box at the top with navigation -->
     <div style="background-color: white; width: 100%; height: 55px; border-bottom: 2px solid #333; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: flex-end; padding-right: 40px; position: fixed; top: 0; z-index: 1000;">
         <!-- Top right navigation -->
         <nav style="display: flex; gap: 10px; padding-right: 20px;">
-            <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid #ffc0cb; border-radius: 20px; transition: all 0.3s ease; background-color: #ffc0cb;">
+            <a href="index.html"
+               style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid #ffffff; border-radius: 20px; transition: all 0.3s ease; background-color: #ffffff;"
+               onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.border='2px solid #333'; this.style.transform='translateY(-1px)'"
+               onmouseout="this.style.backgroundColor='#ffc0cb'; this.style.border='2px solid #ffc0cb'; this.style.transform='translateY(0)'">
                 home
             </a>
-            <a href="post.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+            <a href="post.html"
+               style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.border='2px solid #333'; this.style.transform='translateY(-1px)'"
+               onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid transparent'; this.style.transform='translateY(0)'">
                 post
             </a>
-            <a href="about.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+            <a href="about.html"
+               style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;"
+               onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.border='2px solid #333'; this.style.transform='translateY(-1px)'"
+               onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid transparent'; this.style.transform='translateY(0)'">
                 about me
             </a>
         </nav>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div style="margin-top: 65px; padding: 30px 15px; max-width: 1000px; margin-left: auto; margin-right: auto;">
         <!-- Header -->
-        <div class="header">
-            <h1>My Industrial Visit Journey🏢</h1>
-            <p>Click on each company to read about my amazing experiences across 6 different tech companies!</p>
+        <div style="text-align: center; margin-bottom: 40px; padding: 25px 15px;">
+            <h1 style="font-size: clamp(2rem, 4vw, 3rem); color: #333; margin-bottom: 15px; font-weight: bold; text-decoration: underline; text-decoration-style: dotted; text-decoration-color: #ff8c00; text-decoration-thickness: 2px;">My Industrial Visit Journey🏢</h1>
+            <p style="font-size: 1rem; color: #555; max-width: 500px; margin: 0 auto;">Click on each company to read about my amazing experiences across 6 different tech companies!</p>
         </div>
 
         <!-- Company Cards -->
-        <div class="company-grid">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 40px;">
             <!-- Foundever -->
-            <div class="company-card rotate-1" onclick="openModal('foundever')">
-                <div class="corner-accent top-left bg-orange"></div>
-                <h2 class="company-title">🚀 Foundever Philippines</h2>
-                <div class="date-badge bg-orange">Day 1 AM • June 09, 2025</div>
-                <p class="company-description">A BPO with decades of leadership in the customer experience industry!</p>
-                <div class="tags">
-                    <span class="tag">Customer Service Associate</span>
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(1deg);" 
+                 onclick="openModal('foundever')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(1deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #ff8c00;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">🚀 Foundever Philippines</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #ff8c00;">Day 1 AM • June 09, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">A BPO with decades of leadership in the customer experience industry!</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Customer Service Associate</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
 
             <!-- Google -->
-            <div class="company-card rotate-neg1" onclick="openModal('google')">
-                <div class="corner-accent top-right bg-pink"></div>
-                <h2 class="company-title">📊 Google Philippines</h2>
-                <div class="date-badge bg-green">Day 1 PM • June 09, 2025</div>
-                <p class="company-description">A company focusing on online advertising, search engine technology, cloud computing, computer software and more!</p>
-                <div class="tags">
-                    <span class="tag">Search Engines</span>
-                    <span class="tag">Translate</span>
-                    <span class="tag">Assistant</span>
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(-1deg);" 
+                 onclick="openModal('google')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(-1deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #e91e63;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">📊 Google Philippines</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #4caf50;">Day 1 PM • June 09, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">A company focusing on online advertising, search engine technology, cloud computing, computer software and more!</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Search Engines</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Translate</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Assistant</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
 
             <!-- Teleperformance -->
-            <div class="company-card rotate-0-5" onclick="openModal('teleperformance')">
-                <div class="corner-accent top-left bg-blue"></div>
-                <h2 class="company-title">☁️ Teleperformance Philippines</h2>
-                <div class="date-badge bg-blue">Day 2 AM • June 10, 2025</div>
-                <p class="company-description">A Front-Row Seat to the Future of Work: Our Eye-Opening Journey Inside Teleperformance!</p>
-                <div class="tags">
-                    <span class="tag">Voice</span>
-                    <span class="tag">Email</span>
-                    <span class="tag">Web form</span>
-                    <span class="tag">& many more...</span>
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(0.5deg);" 
+                 onclick="openModal('teleperformance')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(0.5deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #2196f3;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">☁️ Teleperformance Philippines</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #2196f3;">Day 2 AM • June 10, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">A Front-Row Seat to the Future of Work: Our Eye-Opening Journey Inside Teleperformance!</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Voice</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Email</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Web form</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">& many more...</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
 
             <!-- Kollab -->
-            <div class="company-card rotate-neg0-5" onclick="openModal('kollab')">
-                <div class="corner-accent top-right bg-green"></div>
-                <h2 class="company-title">🧪 Kollab Philippines</h2>
-                <div class="date-badge bg-purple">Day 2 PM • June 10, 2025</div>
-                <p class="company-description">The leading cloud-first IT consulting firm in Southeast Asia</p>
-                <div class="tags">
-                    <span class="tag">AI & Automation</span>
-                    <span class="tag">Cloud Solutions</span>
-                    <span class="tag">Cybersecurity</span>
-                    <span class="tag">Data & Analytics</span>
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(-0.5deg);" 
+                 onclick="openModal('kollab')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(-0.5deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #4caf50;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">🧪 Kollab Philippines</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #6f42c1;">Day 2 PM • June 10, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">The leading cloud-first IT consulting firm in Southeast Asia</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">AI & Automation</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Cloud Solutions</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Cybersecurity</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Data & Analytics</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
 
-                    <!-- ADB -->
-            <div class="company-card rotate-1-5" onclick="openModal('adb')">
-                <div class="corner-accent top-left bg-red"></div>
-                <h2 class="company-title">🛡️ Asia Development Bank</h2>
-                <div class="date-badge bg-red">Day 3 • June 11 AM, 2025</div>
-                <p class="company-description">A leading multilateral development bank!</p>
-                <div class="tags">
-                    <span class="tag">Kali Linux</span>
-                    <span class="tag">Wireshark</span>
-                    <span class="tag">Metasploit</span>
+            <!-- ADB -->
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(1.5deg);" 
+                 onclick="openModal('adb')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(1.5deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #dc3545;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">🛡️ Asia Development Bank</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #dc3545;">Day 3 • June 11 AM, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">A leading multilateral development bank!</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Development Banking</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Digital Transformation</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Climate Action</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
+
             <!-- GameForge -->
-            <div class="company-card rotate-neg1-5" onclick="openModal('gameforge')">
-                <div class="corner-accent top-right bg-purple"></div>
-                <h2 class="company-title">🎮 GameForge Studios</h2>
-                <div class="date-badge bg-purple">Day 6 • Jan 20, 2025</div>
-                <p class="company-description">Epic game development pipeline and multiplayer networking architecture!</p>
-                <div class="tags">
-                    <span class="tag">Unity</span>
-                    <span class="tag">C#</span>
-                    <span class="tag">Photon</span>
+            <div style="background: white; padding: 20px; border: 2px solid #333; box-shadow: 4px 4px 0px #333; position: relative; cursor: pointer; transition: all 0.3s ease; border-radius: 6px; transform: rotate(-1.5deg);" 
+                 onclick="openModal('gameforge')"
+                 onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='6px 6px 0px #333'"
+                 onmouseout="this.style.transform='rotate(-1.5deg) scale(1)'; this.style.boxShadow='4px 4px 0px #333'">
+                <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #6f42c1;"></div>
+                <h2 style="font-size: 1.2rem; color: #333; margin-bottom: 10px; font-weight: bold;">🎮 GameForge Studios</h2>
+                <div style="display: inline-block; padding: 6px 12px; border: 2px solid #333; border-radius: 15px; font-weight: bold; font-size: 0.8rem; margin-bottom: 15px; color: white; background-color: #6f42c1;">Day 6 • Jan 20, 2025</div>
+                <p style="font-size: 0.9rem; color: #333; margin-bottom: 15px; line-height: 1.5;">Epic game development pipeline and multiplayer networking architecture!</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 15px;">
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Unity</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">C#</span>
+                    <span style="background: #f0f0f0; padding: 3px 8px; border: 1px solid #999; border-radius: 10px; font-size: 0.7rem; color: #333;">Photon</span>
                 </div>
-                <p class="read-more">Click to read more →</p>
+                <p style="font-size: 0.8rem; color: #666; font-style: italic;">Click to read more →</p>
             </div>
         </div>
 
         <!-- Final Reflection -->
-        <div class="final-reflection">
-            <h2>🌟 What an Amazing Journey!</h2>
-            <p>Six incredible companies, each with their unique approach to technology! From containerization to cybersecurity, from game development to machine learning - this journey has opened my eyes to the endless possibilities in tech! 🚀</p>
-            <a href="about.html" class="cta-button">📖 Learn More About Me</a>
+        <div style="background: #ffc0cb; padding: 25px; border: 2px dashed #333; text-align: center; margin: 40px 0; border-radius: 8px;">
+            <h2 style="font-size: 1.5rem; color: #333; margin-bottom: 15px; font-weight: bold;">🌟 What an Amazing Journey!</h2>
+            <p style="font-size: 1rem; color: #333; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Six incredible companies, each with their unique approach to technology! From containerization to cybersecurity, from game development to machine learning - this journey has opened my eyes to the endless possibilities in tech! 🚀</p>
+            <a href="about.html" 
+               style="background: white; color: #333; padding: 10px 20px; border: 2px solid #333; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 0.9rem; box-shadow: 3px 3px 0px #333; transition: all 0.3s ease; display: inline-block;"
+               onmouseover="this.style.boxShadow='4px 4px 0px #333'; this.style.transform='translateY(-1px)'"
+               onmouseout="this.style.boxShadow='3px 3px 0px #333'; this.style.transform='translateY(0)'">📖 Learn More About Me</a>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-text">
-                <p>Appreciate you stopping by!</p>
-                <p>
+    <footer style="border-top: 2px solid #333; padding: 30px 15px; max-width: 1000px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1;">
+                <p style="font-size: 1rem; color: #333; margin-bottom: 8px;">Appreciate you stopping by!</p>
+                <p style="font-size: 1rem; font-weight: bold;">
                     <span style="color: #ff8c00;">Ready</span> 
                     <span style="color: #333;">to</span> 
                     <span style="color: #007bff;">team up</span>
@@ -658,81 +170,94 @@
                     <span style="color: #333;">together!</span>
                 </p>
             </div>
-            <div class="social-links">
-                <a href="mailto:" class="social-link">✉</a>
-                <a href="#" class="social-link">in</a>
-                <a href="#" class="social-link">📷</a>
+            <div style="display: flex; gap: 10px;">
+                <a href="mailto:" 
+                   style="display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;"
+                   onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.transform='translateY(-1px)'"
+                   onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateY(0)'">✉</a>
+                <a href="#" 
+                   style="display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;"
+                   onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.transform='translateY(-1px)'"
+                   onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateY(0)'">in</a>
+                <a href="#" 
+                   style="display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;"
+                   onmouseover="this.style.backgroundColor='#ffc0cb'; this.style.transform='translateY(-1px)'"
+                   onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateY(0)'">📷</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>Made with ❤️🎵 by Elouisa © 2025</p>
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
+            <p style="color: #666; font-size: 0.9rem;">Made with ❤️🎵 by Elouisa © 2025</p>
         </div>
     </footer>
 
     <!-- Modal Overlay -->
-    <div id="modalOverlay" class="modal-overlay">
+    <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; overflow-y: auto; padding: 15px;">
         <!-- Foundever Modal -->
-        <div id="foundever-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-orange" onclick="closeModal()">×</button>
-            <div class="corner-accent top-left bg-orange"></div>
+        <div id="foundever-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #ff8c00;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #ff8c00;"></div>
             
-            <h2 class="modal-title">🚀 Foundever Philippines</h2>
-            <div class="modal-date bg-orange">Day 1 AM • June 09, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">🚀 Foundever Philippines</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #ff8c00;">Day 1 AM • June 09, 2025</div>
             
-            <p class="modal-text">Foundever's global team consists of 170K agents fluent in +60 languages working from +120 on-site and hybrid locations spanning 45 countries. With expertise in all industries and business stages, we deliver more than nine million customer experiences for +750 brands every single day.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">Foundever's global team consists of 170K agents fluent in +60 languages working from +120 on-site and hybrid locations spanning 45 countries. With expertise in all industries and business stages, we deliver more than nine million customer experiences for +750 brands every single day.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">💡</div>
-                    <h3 class="highlight-title">Motivation</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">💡</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Motivation</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"If you want something, stand up, leave the crowd and get it yourself"</p>
-                    <p class="quote-author">— Sir CQ</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"If you want something, stand up, leave the crowd and get it yourself"</p>
+                    <p style="font-size: 0.8rem; color: #666; text-align: right; margin-top: 10px; font-style: italic;">— Sir CQ</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">This phrase really struck a chord with me. It sounds so simple, yet it's one of the hardest things to do — knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">This phrase really struck a chord with me. It sounds so simple, yet it's one of the hardest things to do — knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🤖</div>
-                    <h3 class="highlight-title">AI & Future</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🤖</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">AI & Future</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"Q: Will AI replace me in the workplace? A: No — if you know how to leverage it."</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"Q: Will AI replace me in the workplace? A: No — if you know how to leverage it."</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">AI is just a tool. When you embrace it and use it to enhance your skills, you'll stay valuable. It's not about competing with AI — it's about working alongside it.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">AI is just a tool. When you embrace it and use it to enhance your skills, you'll stay valuable. It's not about competing with AI — it's about working alongside it.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="image-gallery">
-                <h3>📸 Foundever Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="company_img/foundever1.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>Foundever Philippines, Technopoint Building, Pasig City</p>
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 Foundever Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/foundever1.jpg" alt="Foundever Philippines Building" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Foundever Philippines, Technopoint Building, Pasig City</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/foundever2.jpg" alt="Group Picture">
-                        <div class="image-caption">
-                            <p>Group Picture</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/foundever2.jpg" alt="Group Picture" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Group Picture</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/foundever3.jpg" alt="Another group picture">
-                        <div class="image-caption">
-                            <p>Another group picture❤️</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/foundever3.jpg" alt="Another group picture" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Another group picture❤️</p>
                         </div>
                     </div>
                 </div>
@@ -740,183 +265,191 @@
         </div>
 
         <!-- Google Modal -->
-        <div id="google-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-pink" onclick="closeModal()">×</button>
-            <div class="corner-accent top-right bg-pink"></div>
+        <div id="google-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #e91e63;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #e91e63;"></div>
             
-            <h2 class="modal-title">📊 Google Philippines</h2>
-            <div class="modal-date bg-green">Day 1 PM • June 09, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">📊 Google Philippines</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #4caf50;">Day 1 PM • June 09, 2025</div>
             
-            <p class="modal-text">In his presentation, Atty. Gonzalez shed light on Google's journey as a global innovation leader, highlighting how Artificial Intelligence powers everyday tools like Search, Translate, and Assistant.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">In his presentation, Atty. Gonzalez shed light on Google's journey as a global innovation leader, highlighting how Artificial Intelligence powers everyday tools like Search, Translate, and Assistant.</p>
             
-            <p class="modal-text">He also emphasized Google's efforts toward digital inclusion, its collaborations to advance digital skills and economic growth in the Philippines, and the critical need for ethical and transparent tech governance in today's digital age.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">He also emphasized Google's efforts toward digital inclusion, its collaborations to advance digital skills and economic growth in the Philippines, and the critical need for ethical and transparent tech governance in today's digital age.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🎯</div>
-                    <h3 class="highlight-title">Google's Mission</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🎯</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Google's Mission</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"To organize the world's information and make it universally accessible and useful."</p>
-                    <p class="quote-author">— Google Inc.</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"To organize the world's information and make it universally accessible and useful."</p>
+                    <p style="font-size: 0.8rem; color: #666; text-align: right; margin-top: 10px; font-style: italic;">— Google Inc.</p>
                 </div>
             </div>
 
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">💼</div>
-                    <h3 class="highlight-title">Career Advice</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">💼</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Career Advice</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"Want to land a job? UPSKILL! Take the time to invest in yourself — learn, grow, and explore new things that will enhance your skill set."</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"Want to land a job? UPSKILL! Take the time to invest in yourself — learn, grow, and explore new things that will enhance your skill set."</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">Google's Internal Cultural Values: Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. The 'think 10x' principle really stuck with me - not 10% better but 10x better when solving problems.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">Google's Internal Cultural Values: Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. The 'think 10x' principle really stuck with me - not 10% better but 10x better when solving problems.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="image-gallery">
-                <h3>📸 Google Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="company_img/google4.jpg" alt="Google Office">
-                        <div class="image-caption">
-                            <p>Such a dream to be here!</p>
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 Google Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/google4.jpg" alt="Google Office" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Such a dream to be here!</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/google2.jpg" alt="Android Robot">
-                        <div class="image-caption">
-                            <p>me and Android Robot hehe</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/google2.jpg" alt="Android Robot" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">me and Android Robot hehe</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/google3.jpg" alt="Google visit">
-                        <div class="image-caption">
-                            <p>yey!!</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/google3.jpg" alt="Google visit" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">yey!!</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/google5.jpg" alt="Group photo">
-                        <div class="image-caption">
-                            <p>Ofcourse, groupiee!</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/google5.jpg" alt="Group photo" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Ofcourse, groupiee!</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
         <!-- Teleperformance Modal -->
-        <div id="teleperformance-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-blue" onclick="closeModal()">×</button>
-            <div class="corner-accent top-left bg-blue"></div>
+        <div id="teleperformance-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #2196f3;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #2196f3;"></div>
             
-            <h2 class="modal-title">☁️ Teleperformance Philippines</h2>
-            <div class="modal-date bg-blue">Day 2 AM • June 10, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">☁️ Teleperformance Philippines</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #2196f3;">Day 2 AM • June 10, 2025</div>
             
-            <p class="modal-text">Teleperformance is a global leader in digitally integrated business services, providing customer experience management, technical support, and back-office solutions powered by innovation and human connection.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">Teleperformance is a global leader in digitally integrated business services, providing customer experience management, technical support, and back-office solutions powered by innovation and human connection.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🧠</div>
-                    <h3 class="highlight-title">Empathy: The Human Edge</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🧠</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Empathy: The Human Edge</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"Soft skills are essential"</p>
-                    <p class="quote-author">— Ms. Beatrice Grace Bonjibod, Brand Marketing Specialist @ TP</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"Soft skills are essential"</p>
+                    <p style="font-size: 0.8rem; color: #666; text-align: right; margin-top: 10px; font-style: italic;">— Ms. Beatrice Grace Bonjibod, Brand Marketing Specialist @ TP</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">While AI can process data and automate tasks, it lacks empathy. Empathy—the ability to understand and genuinely connect with another person's feelings—remains irreplaceable in customer service, leadership, and human connection.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">While AI can process data and automate tasks, it lacks empathy. Empathy—the ability to understand and genuinely connect with another person's feelings—remains irreplaceable in customer service, leadership, and human connection.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="image-gallery">
-                <h3>📸 Teleperformance Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="company_img/tp6.jpg" alt="Teleperformance visit">
-                        <div class="image-caption">
-                            <p>Excited to be here!</p>
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 Teleperformance Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/tp6.jpg" alt="Teleperformance visit" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Excited to be here!</p>
                         </div>
                     </div>
-                  
-                    <div class="image-card">
-                        <img src="company_img/tp1.jpg" alt="Talk with Ms. Bonjibod">
-                        <div class="image-caption">
-                            <p>The talk with Ms.Bonjibod</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/tp1.jpg" alt="Talk with Ms. Bonjibod" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">The talk with Ms.Bonjibod</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/tp5.jpg" alt="Group waiting">
-                        <div class="image-caption">
-                            <p>Yey groupiee while waiting for our batch</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/tp5.jpg" alt="Group waiting" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Yey groupiee while waiting for our batch</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/tp4.jpg" alt="TP experience">
-                        <div class="image-caption">
-                            <p>WOW!</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/tp4.jpg" alt="TP experience" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">WOW!</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
         <!-- Kollab Modal -->
-        <div id="kollab-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-green" onclick="closeModal()">×</button>
-            <div class="corner-accent top-right bg-green"></div>
+        <div id="kollab-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #4caf50;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #4caf50;"></div>
             
-            <h2 class="modal-title">🧪 Kollab Philippines</h2>
-            <div class="modal-date bg-purple">Day 2 PM • June 10, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">🧪 Kollab Philippines</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #6f42c1;">Day 2 PM • June 10, 2025</div>
             
-            <p class="modal-text">A leading cloud-first IT consulting firm in Southeast Asia, based in the Philippines. They help over 1,100 companies with digital transformation—covering AI, cybersecurity, data analytics, application modernization, and managed services.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">A leading cloud-first IT consulting firm in Southeast Asia, based in the Philippines. They help over 1,100 companies with digital transformation—covering AI, cybersecurity, data analytics, application modernization, and managed services.</p>
             
-            <p class="modal-text">They're known for working closely with companies of all sizes—from startups to large enterprises—to implement technology that drives efficiency, innovation, and growth.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">They're known for working closely with companies of all sizes—from startups to large enterprises—to implement technology that drives efficiency, innovation, and growth.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🏢</div>
-                    <h3 class="highlight-title">Culture Matters</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🏢</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Culture Matters</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"Perks attract, Culture retains."</p>
-                    <p class="quote-author">— Ms. Jazmine Calma, Senior Engineer for Quality Assurance @ Kollab</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"Perks attract, Culture retains."</p>
+                    <p style="font-size: 0.8rem; color: #666; text-align: right; margin-top: 10px; font-style: italic;">— Ms. Jazmine Calma, Senior Engineer for Quality Assurance @ Kollab</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">While benefits like bonuses and flexible hours can draw people in, it's the workplace culture—how people are treated, valued, and supported—that truly makes them stay.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">While benefits like bonuses and flexible hours can draw people in, it's the workplace culture—how people are treated, valued, and supported—that truly makes them stay.</p>
                     </div>
                 </div>
             </div>
-            <div class="image-gallery">
-                <h3>📸 Kollab Philippines Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="company_img/kollab1.jpg" alt="Kollab Philippines visit">
-                        <div class="image-caption">
-                            <p>Amazing experience at Kollab!</p>
+            
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 Kollab Philippines Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/kollab1.jpg" alt="Kollab Philippines visit" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Amazing experience at Kollab!</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/kollab2.jpg" alt="Kollab team discussion">
-                        <div class="image-caption">
-                            <p>Groupiee</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/kollab2.jpg" alt="Kollab team discussion" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Groupiee</p>
                         </div>
                     </div>
-                    <div class="image-card">
-                        <img src="company_img/kollab3.jpg" alt="Kollab office tour">
-                        <div class="image-caption">
-                            <p>Tech insights</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/kollab3.jpg" alt="Kollab office tour" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Tech insights</p>
                         </div>
                     </div>
                 </div>
@@ -924,144 +457,138 @@
         </div>
 
         <!-- ADB Modal -->
-        <div id="adb-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-red" onclick="closeModal()">×</button>
-            <div class="corner-accent top-left bg-red"></div>
+        <div id="adb-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #dc3545;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; left: -1px; background-color: #dc3545;"></div>
             
-            <h2 class="modal-title">🛡️Asia Development Bank</h2>
-            <div class="modal-date bg-red">Day 3 AM • June 11, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">🛡️Asia Development Bank</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #dc3545;">Day 3 AM • June 11, 2025</div>
             
-            <p class="modal-text">The visit to the Asian Development Bank (ADB) gave students a meaningful glimpse into the bank’s legacy, innovation, and global impact. From touring ADB’s historical exhibits to engaging with IT leaders, students learned about development banking, digital transformation, and career opportunities in mission-driven organizations. </p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">The visit to the Asian Development Bank (ADB) gave students a meaningful glimpse into the bank's legacy, innovation, and global impact. From touring ADB's historical exhibits to engaging with IT leaders, students learned about development banking, digital transformation, and career opportunities in mission-driven organizations.</p>
             
-            <p class="modal-text">The event also featured a student project showcase and networking with professionals from ADB, CXC, and IBPAP—making it a truly eye-opening experience.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">The event also featured a student project showcase and networking with professionals from ADB, CXC, and IBPAP—making it a truly eye-opening experience.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🔒</div>
-                    <h3 class="highlight-title">ADB’s Strategic Focus Areas by 2030</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🔒</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">ADB's Strategic Focus Areas by 2030</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">To address key development challenges, ADB is focusing on five priorities:</p>                 
-                        <p>🌱 Climate Action</p>
-                        <p>💼 Private Sector Development</p>
-                        <p>🌏 Regional Cooperation</p>
-                        <p>💻 Digital Transformation</p>
-                        <p>💪 Resilience & Empowerment</p>      
-                </div>
-                
-            </div>
-
-              <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🎯</div>
-                    <h3 class="highlight-title">What stereotype of my generation or background would i like to challenge? </h3>
-                </div>
-                <div class="quote-box">
-                    <p class="quote-text">One of the questions asked to one of the speakers during the event was, “What stereotype of your generation or background would you like to challenge?” For me, it’s the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender. Women belong in this space, and I’m determined to help pave the way.</p>
-                    
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">To address key development challenges, ADB is focusing on five priorities:</p>                 
+                    <p style="margin: 5px 0; color: #444;">🌱 Climate Action</p>
+                    <p style="margin: 5px 0; color: #444;">💼 Private Sector Development</p>
+                    <p style="margin: 5px 0; color: #444;">🌏 Regional Cooperation</p>
+                    <p style="margin: 5px 0; color: #444;">💻 Digital Transformation</p>
+                    <p style="margin: 5px 0; color: #444;">💪 Resilience & Empowerment</p>      
                 </div>
             </div>
 
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🎯</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">What stereotype of my generation or background would i like to challenge?</h3>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">One of the questions asked to one of the speakers during the event was, "What stereotype of your generation or background would you like to challenge?" For me, it's the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender. Women belong in this space, and I'm determined to help pave the way.</p>
+                </div>
+            </div>
 
-            <div class="image-gallery">
-                <h3>📸 ADB Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="company_img/adb3.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>here we go! so excitedd</p>
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 ADB Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb3.jpg" alt="ADB visit excitement" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">here we go! so excitedd</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb5.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>ADB in th field</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb5.jpg" alt="ADB in the field" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">ADB in th field</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb7.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>ADB History</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb7.jpg" alt="ADB History" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">ADB History</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb8.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>Tour</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb8.jpg" alt="Tour" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Tour</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb1.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>Group pic #1</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb1.jpg" alt="Group pic 1" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Group pic #1</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb6.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>History Gallery</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb6.jpg" alt="History Gallery" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">History Gallery</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb2.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>Group pic #2</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb2.jpg" alt="Group pic 2" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">Group pic #2</p>
                         </div>
                     </div>
-
-                    <div class="image-card">
-                        <img src="company_img/adb4.jpg" alt="Foundever Philippines Building">
-                        <div class="image-caption">
-                            <p>ITD Community</p>
+                    <div style="border: 2px solid #333; border-radius: 6px; overflow: hidden; background: white; box-shadow: 2px 2px 0px #333;">
+                        <img src="company_img/adb4.jpg" alt="ITD Community" style="width: 100%; height: 120px; object-fit: cover;">
+                        <div style="padding: 8px;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #333; font-weight: bold;">ITD Community</p>
                         </div>
                     </div>
-
-                   
-
                 </div>
             </div>
         </div>
 
         <!-- GameForge Modal -->
-        <div id="gameforge-modal" class="modal-content" style="display: none;">
-            <button class="modal-close bg-purple" onclick="closeModal()">×</button>
-            <div class="corner-accent top-right bg-purple"></div>
+        <div id="gameforge-modal" style="display: none; background: white; margin: 30px auto; padding: 30px; max-width: 700px; border: 2px solid #333; box-shadow: 8px 8px 0px #333; position: relative; border-radius: 8px;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; width: 30px; height: 30px; border: 2px solid #333; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background-color: #6f42c1;"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'">×</button>
+            <div style="position: absolute; width: 12px; height: 12px; transform: rotate(45deg); top: -1px; right: -1px; background-color: #6f42c1;"></div>
             
-            <h2 class="modal-title">🎮 GameForge Studios</h2>
-            <div class="modal-date bg-purple">Day 6 • Jan 20, 2025</div>
+            <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 15px; font-weight: bold;">🎮 GameForge Studios</h2>
+            <div style="display: inline-block; padding: 8px 15px; border: 2px solid #333; border-radius: 20px; font-weight: bold; font-size: 0.8rem; margin-bottom: 20px; color: white; background-color: #6f42c1;">Day 6 • Jan 20, 2025</div>
             
-            <p class="modal-text">GameForge Studios was like stepping into a digital playground! Their game development pipeline is absolutely incredible - from concept art to multiplayer networking, every step was fascinating to watch.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">GameForge Studios was like stepping into a digital playground! Their game development pipeline is absolutely incredible - from concept art to multiplayer networking, every step was fascinating to watch.</p>
             
-            <p class="modal-text">The highlight? I got to playtest their upcoming RPG and even contributed ideas for character mechanics! Seeing how player feedback directly influences game design was amazing.</p>
+            <p style="font-size: 0.95rem; color: #333; line-height: 1.6; margin-bottom: 15px;">The highlight? I got to playtest their upcoming RPG and even contributed ideas for character mechanics! Seeing how player feedback directly influences game design was amazing.</p>
             
-            <div class="highlight-box">
-                <div class="highlight-header">
-                    <div class="highlight-icon">🎯</div>
-                    <h3 class="highlight-title">Game Dev Secrets</h3>
+            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #c084fc; border-radius: 8px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
+                <div style="content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #c084fc, #a855f7); border-radius: 0 2px 2px 0;"></div>
+                <div style="display: flex; align-items: center; margin-bottom: 15px; margin-left: 10px;">
+                    <div style="background: #c084fc; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 14px;">🎯</div>
+                    <h3 style="font-size: 1.1rem; color: #333; font-weight: bold;">Game Dev Secrets</h3>
                 </div>
-                <div class="quote-box">
-                    <p class="quote-text">"Great games are built on great teams, not just great code"</p>
-                    <p class="quote-author">— Lead Game Designer at GameForge</p>
+                <div style="background: white; padding: 15px; border-radius: 6px; border-left: 3px solid #c084fc; margin: 15px 10px; position: relative;">
+                    <p style="font-size: 1rem; line-height: 1.5; color: #444; font-style: italic; margin: 0;">"Great games are built on great teams, not just great code"</p>
+                    <p style="font-size: 0.8rem; color: #666; text-align: right; margin-top: 10px; font-style: italic;">— Lead Game Designer at GameForge</p>
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">Player experience comes before technical perfection. Multiplayer networking is incredibly complex. Game balancing requires constant iteration. Art and code must work in perfect harmony.</p>
+                <div style="background: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 15px 10px 0 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="background: #a855f7; color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; white-space: nowrap;">MY TAKE</span>
+                        <p style="font-size: 0.85rem; line-height: 1.5; color: #475569; margin: 0;">Player experience comes before technical perfection. Multiplayer networking is incredibly complex. Game balancing requires constant iteration. Art and code must work in perfect harmony.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="image-gallery">
-                <h3>📸 GameForge Studios Visit Photos</h3>
-                <div class="image-grid">
-                    <div class="placeholder-image">
-                        <p class="placeholder-text">Add your<br>GameForge Studios images<br>here</p>
+            <div style="border-top: 2px dashed #333; padding-top: 15px; margin-top: 20px;">
+                <h3 style="font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold;">📸 GameForge Studios Visit Photos</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="border: 2px dashed #ccc; border-radius: 6px; background: #f9f9f9; height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <p style="color: #999; font-style: italic; text-align: center; margin: 0; font-size: 0.8rem;">Add your<br>GameForge Studios images<br>here</p>
                     </div>
                 </div>
             </div>
@@ -1077,7 +604,7 @@
 
         function closeModal() {
             document.getElementById('modalOverlay').style.display = 'none';
-            const modals = document.querySelectorAll('.modal-content');
+            const modals = document.querySelectorAll('[id$="-modal"]');
             modals.forEach(modal => modal.style.display = 'none');
             document.body.style.overflow = 'auto';
         }
@@ -1108,6 +635,21 @@
                 }
             });
         });
+
+        // Add responsive behavior for mobile
+        if (window.innerWidth <= 768) {
+            const companyGrid = document.querySelector('[style*="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))"]');
+            if (companyGrid) {
+                companyGrid.style.gridTemplateColumns = '1fr';
+                companyGrid.style.gap = '20px';
+            }
+            
+            const modals = document.querySelectorAll('[id$="-modal"]');
+            modals.forEach(modal => {
+                modal.style.margin = '15px auto';
+                modal.style.padding = '20px 15px';
+            });
+        }
     </script>
 </body>
 </html>
