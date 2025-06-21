@@ -17,48 +17,7 @@
             line-height: 1.5;
         }
 
-        /* Navigation */
-        .nav-bar {
-            background-color: white;
-            width: 100%;
-            height: 50px;
-            border-bottom: 2px solid #333;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 30px;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 14px;
-            padding: 8px 14px;
-            border: 2px solid transparent;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: #ffc0cb;
-            border: 2px solid #333;
-            transform: translateY(-1px);
-        }
-
-        .nav-link.active {
-            background-color: #ffc0cb;
-            border: 2px solid #333;
-        }
+  
 
         /* Main Content */
         .main-content {
@@ -557,18 +516,6 @@
                 text-align: center;
             }
             
-            .nav-bar {
-                padding-right: 15px;
-            }
-            
-            .nav-links {
-                gap: 6px;
-            }
-            
-            .nav-link {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
 
             .image-grid {
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -578,13 +525,21 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav-bar">
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">home</a>
-            <a href="post.html" class="nav-link active">post</a>
-            <a href="about.html" class="nav-link">about me</a>
-        </div>
-    </nav>
+    <!-- Fixed white rectangular box at the top with navigation -->
+    <div style="background-color: white; width: 100%; height: 55px; border-bottom: 2px solid #333; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: flex-end; padding-right: 40px; position: fixed; top: 0; z-index: 1000;">
+        <!-- Top right navigation -->
+        <nav style="display: flex; gap: 10px; padding-right: 20px;">
+            <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid #ffc0cb; border-radius: 20px; transition: all 0.3s ease; background-color: #ffc0cb;">
+                home
+            </a>
+            <a href="post.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+                post
+            </a>
+            <a href="about.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
+                about me
+            </a>
+        </nav>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -655,9 +610,9 @@
                     <!-- ADB -->
             <div class="company-card rotate-1-5" onclick="openModal('adb')">
                 <div class="corner-accent top-left bg-red"></div>
-                <h2 class="company-title">🛡️Asia Development Bank</h2>
+                <h2 class="company-title">🛡️ Asia Development Bank</h2>
                 <div class="date-badge bg-red">Day 3 • June 11 AM, 2025</div>
-                <p class="company-description">Ethical hacking workshops and advanced cybersecurity threat detection systems!</p>
+                <p class="company-description">A leading multilateral development bank!</p>
                 <div class="tags">
                     <span class="tag">Kali Linux</span>
                     <span class="tag">Wireshark</span>
@@ -973,36 +928,102 @@
             <button class="modal-close bg-red" onclick="closeModal()">×</button>
             <div class="corner-accent top-left bg-red"></div>
             
-            <h2 class="modal-title">🛡️ CyberShield Security</h2>
-            <div class="modal-date bg-red">Day 5 • Jan 19, 2025</div>
+            <h2 class="modal-title">🛡️Asia Development Bank</h2>
+            <div class="modal-date bg-red">Day 3 AM • June 11, 2025</div>
             
-            <p class="modal-text">CyberShield opened my eyes to the dark side of the internet - but in the best way possible! Their ethical hacking workshops were absolutely mind-blowing. I learned how to think like a hacker to better protect systems.</p>
+            <p class="modal-text">The visit to the Asian Development Bank (ADB) gave students a meaningful glimpse into the bank’s legacy, innovation, and global impact. From touring ADB’s historical exhibits to engaging with IT leaders, students learned about development banking, digital transformation, and career opportunities in mission-driven organizations. </p>
             
-            <p class="modal-text">The coolest part? They let me participate in a live penetration testing session on their sandbox environment. Watching real-time threat detection was like being in a cybersecurity movie!</p>
+            <p class="modal-text">The event also featured a student project showcase and networking with professionals from ADB, CXC, and IBPAP—making it a truly eye-opening experience.</p>
             
             <div class="highlight-box">
                 <div class="highlight-header">
                     <div class="highlight-icon">🔒</div>
-                    <h3 class="highlight-title">Security Insights</h3>
+                    <h3 class="highlight-title">ADB’s Strategic Focus Areas by 2030</h3>
                 </div>
                 <div class="quote-box">
-                    <p class="quote-text">"The best defense is understanding how attacks work"</p>
-                    <p class="quote-author">— Chief Security Officer at CyberShield</p>
+                    <p class="quote-text">To address key development challenges, ADB is focusing on five priorities:</p>                 
+                        <p>🌱 Climate Action</p>
+                        <p>💼 Private Sector Development</p>
+                        <p>🌏 Regional Cooperation</p>
+                        <p>💻 Digital Transformation</p>
+                        <p>💪 Resilience & Empowerment</p>      
                 </div>
-                <div class="takeaway-box">
-                    <div class="takeaway-header">
-                        <span class="takeaway-badge">MY TAKE</span>
-                        <p class="takeaway-text">Social engineering is the biggest security threat. Network monitoring is crucial for early detection. Zero-trust architecture is the future. Regular security audits prevent major breaches.</p>
-                    </div>
+                
+            </div>
+
+              <div class="highlight-box">
+                <div class="highlight-header">
+                    <div class="highlight-icon">🎯</div>
+                    <h3 class="highlight-title">What stereotype of my generation or background would i like to challenge? </h3>
+                </div>
+                <div class="quote-box">
+                    <p class="quote-text">One of the questions asked to one of the speakers during the event was, “What stereotype of your generation or background would you like to challenge?” For me, it’s the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender. Women belong in this space, and I’m determined to help pave the way.</p>
+                    
                 </div>
             </div>
 
+
             <div class="image-gallery">
-                <h3>📸 CyberShield Security Visit Photos</h3>
+                <h3>📸 ADB Visit Photos</h3>
                 <div class="image-grid">
-                    <div class="placeholder-image">
-                        <p class="placeholder-text">Add your<br>CyberShield Security images<br>here</p>
+                    <div class="image-card">
+                        <img src="company_img/adb3.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>here we go! so excitedd</p>
+                        </div>
                     </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb5.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>ADB in th field</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb7.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>ADB History</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb8.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>Tour</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb1.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>Group pic #1</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb6.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>History Gallery</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb2.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>Group pic #2</p>
+                        </div>
+                    </div>
+
+                    <div class="image-card">
+                        <img src="company_img/adb4.jpg" alt="Foundever Philippines Building">
+                        <div class="image-caption">
+                            <p>ITD Community</p>
+                        </div>
+                    </div>
+
+                   
+
                 </div>
             </div>
         </div>
