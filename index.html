@@ -1,166 +1,1612 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hi! My name is Elouisa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elouisa's Industrial Visit Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(to bottom, #f0c4da, #ffffff, #ffffff);
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 3px solid #1a1a1a;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #1a1a1a;
+            border-radius: 20px;
+            background: #fff;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            text-transform: lowercase;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #ff69b4;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+      .speech-bubble {
+    background: #ff69b4;
+    color: #fff;
+    padding: 0.5rem .5rem;
+    border-radius: 20px;
+    border: 2px solid #1a1a1a;
+    font-size: 0.85rem;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 3px 3px 0px #1a1a1a;
+   
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #1a1a1a;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 16px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ff69b4;
+}
+
+
+        .name-letters {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .name-letters img {
+            width: 70px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .joy-letters {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .joy-letters img {
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+       
+        /* Blog Card */
+        .blog-card {
+            background: #fff;
+            padding: 2rem;
+            border: 3px solid #1a1a1a;
+            border-radius: 8px;
+            transform: rotate(-1deg);
+            box-shadow: 6px 6px 0px #ff69b4;
+            position: relative;
+            transition: transform 0.3s ease;
+            max-width: 500px;
+            padding-top: 20px;
+        }
+
+        .blog-card:hover {
+            transform: rotate(0deg);
+        }
+
+        .blog-card::before {
+            content: '✨';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 1.5rem;
+        }
+
+        .blog-card h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .blog-card p {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .cta-box {
+            border: 2px dashed #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+            margin-top: 1rem;
+            border-radius: 4px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .article-header h1 {
+            font-size: 62px;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .article-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #ff69b4;
+            border-radius: 2px;
+        }
+
+        .article-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Company Cards Grid */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .company-card {
+            background: #fff;
+            padding: 1.5rem;
+            border: 3px solid #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 4px 4px 0px #1a1a1a;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 15px;
+            height: 15px;
+            transform: rotate(45deg);
+        }
+
+        .company-card.foundever::before { background: #ff8c00; }
+        .company-card.google::before { background: #4caf50; }
+        .company-card.teleperformance::before { background: #2196f3; }
+        .company-card.kollab::before { background: #9c27b0; }
+        .company-card.adb::before { background: #f44336; }
+        .company-card.gameforge::before { background: #673ab7; }
+
+        .company-card:nth-child(3n+1) { transform: rotate(1deg); }
+        .company-card:nth-child(3n+2) { transform: rotate(-1deg); }
+        .company-card:nth-child(3n+3) { transform: rotate(0.5deg); }
+
+        .company-card:hover {
+            transform: rotate(0deg) translateY(-2px);
+            box-shadow: 6px 6px 0px #1a1a1a;
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-icon {
+            width: 24px;
+            height: 24px;
+            color: #1a1a1a;
+        }
+
+        .company-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .date-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 2px solid #1a1a1a;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .foundever .date-badge { background: #f6dbba; }
+        .google .date-badge { background: #d2f5d3; }
+        .teleperformance .date-badge { background: #bad4e9; }
+        .kollab .date-badge { background: #f2c1fb; }
+        .adb .date-badge { background: #f2aea9; }
+        .gameforge .date-badge { background: #c3a7f3; }
+
+        .company-description {
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: #f8f9fa;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            color: #495057;
+        }
+
+        .read-more {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Final Reflection */
+        .final-reflection {
+            background: #fff;
+            padding: 2rem;
+            border: 3px dashed #1a1a1a;
+            text-align: center;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 4px 4px 0px #ff69b4;
+        }
+
+        .final-reflection h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .final-reflection p {
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #1a1a1a;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 3px 3px 0px #ff69b4;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            box-shadow: 4px 4px 0px #ff69b4;
+            transform: translateY(-1px);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .modal {
+            display: none;
+            background: #fff;
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 800px;
+            border: 3px solid #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 8px 8px 0px #ff69b4;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            background: #f44336;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .modal-content {
+            color: #1a1a1a;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            border-bottom: 2px solid #ff69b4;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .highlight-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff69b4;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .quote-card {
+            background: #f8f9fa;
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+            border-left: 4px solid #ff69b4;
+        }
+
+        .quote-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote-icon {
+            width: 24px;
+            height: 24px;
+            color: #ff69b4;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .quote-context {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            margin-top: 1rem;
+        }
+
+        .context-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .context-badge {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .context-text {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .insights-grid {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .insight-icon {
+            width: 16px;
+            height: 16px;
+            color: #ff69b4;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .insight-text {
+            color: #1a1a1a;
+            font-size: 0.9rem;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-card {
+            border: 2px solid #1a1a1a;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 2px 2px 0px #1a1a1a;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            padding: 0.75rem;
+        }
+
+        .photo-caption p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 3px solid #1a1a1a;
+            background: #fff;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            text-align: left;
+        }
+
+        .footer-text p:first-child {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-text p:last-child {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .footer-text .orange { color: #ff8c00; }
+        .footer-text .blue { color: #2196f3; }
+        .footer-text .pink { color: #ff69b4; }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.2s ease;
+            background: #fff;
+        }
+
+        .social-btn:hover {
+            background: #ff69b4;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-left {
+                align-items: center;
+            }
+
+            .companies-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .company-card {
+                transform: none !important;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .modal {
+                margin: 1rem auto;
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .name-letters, .joy-letters {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        
+    </header>
 
-<body style="background-color: rgb(248, 230, 230); margin: 0; padding: 0; font-family: 'Courier New', monospace;">
-    
-    <!-- Fixed white rectangular box at the top with navigation -->
-    <div style="background-color: white; width: 100%; height: 55px; border-bottom: 2px solid #333; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: flex-end; padding-right: 40px; position: fixed; top: 0; z-index: 1000;">
-        <!-- Top right navigation -->
-        <nav style="display: flex; gap: 10px; padding-right: 20px;">
-            <a href="index.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid #ffc0cb; border-radius: 20px; transition: all 0.3s ease; background-color: #ffc0cb;">
-                home
-            </a>
-            <a href="post.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
-                post
-            </a>
-            <a href="about.html" style="text-decoration: none; color: #333; font-weight: bold; font-size: 16px; font-family: 'Courier New', monospace; padding: 8px 16px; border: 2px solid transparent; border-radius: 20px; transition: all 0.3s ease;">
-                about me
-            </a>
-        </nav>
+<section class="intro-section" style="display: flex; flex-direction: column; align-items: center; margin: 20px 0; padding: 0;">
+    <!-- BSCS Row -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 6px 0;">
+        <img src="top letters/chunky B.webp" alt="B" style="width: 70px;">
+        <img src="top letters/chunk S.webp" alt="S" style="width: 70px;">
+        <img src="top letters/chunky.webp" alt="C" style="width: 70px;">
+        <img src="top letters/chunk S.webp" alt="S" style="width: 70px;">
     </div>
 
-<!--start-->
-    <!-- Main Content Split Layout -->
-    <div style="display: flex; min-height: 80vh; align-items: flex-start; padding: 120px 40px 40px 40px; justify-content: center; gap: 60px;">
-        
-        <!-- Left Section - Hi Section -->
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 60px;">
-            
-            <!-- Container for speech bubble and Elouisa letters to align them -->
-            <div style="display: flex; flex-direction: column; align-items: flex-start; position: relative;">
-                
-               <!-- Speech Bubble with symmetric borders in baby pink -->
-                <div style="background-color: #ffc0cb; color: #515151; padding: 15px 25px; border-radius: 25px; font-weight: bold; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 15px; position: relative; border: 2px solid #ffb6c1;">
-                    You can call me 
-                    <!-- Small tail for speech bubble -->
-                    <div style="position: absolute; bottom: -8px; left: 15px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #ffb6c1;"></div>
-                    <div style="position: absolute; bottom: -6px; left: 16px; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #ffc0cb;"></div>
-                </div>
-
-                <!-- Elouisa letters aligned with speech bubble -->
-                <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
-                    <img src="zine letters/e.webp" alt="E" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/l.webp" alt="l" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/elO.png" alt="o" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/u.webp" alt="u" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/i.webp" alt="i" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/s.webp" alt="s" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                    <img src="zine letters/a.webp" alt="a" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                </div>
-            </div>
-            
-            <!-- Joy letters -->
-            <div style="display: flex; gap: 8px; align-items: center; padding-top: 15px;">
-                <img src="zine letters/j.webp" alt="j" style="width: 70px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                <img src="zine letters/o for joy.webp" alt="o" style="width: 85px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                <img src="zine letters/y new.png" alt="y" style="width: 65px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-                <img src="zine letters/heart.webp" alt="y" style="width: 75px; height: auto; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));">
-            </div>
-
+    <!-- Industry + Visit Row -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 6px 0;">
+        <!-- Industry -->
+        <div style="display: flex; gap: 4px; margin-right: 20px;">
+            <img src="top letters/i.webp" alt="I" style="width: 55px;">
+            <img src="top letters/n.webp" alt="N" style="width: 55px;">
+            <img src="top letters/d.webp" alt="D" style="width: 55px;">
+            <img src="top letters/u.webp" alt="U" style="width: 55px;">
+            <img src="top letters/s.webp" alt="S" style="width: 55px;">
+            <img src="top letters/t.webp" alt="T" style="width: 55px;">
+            <img src="top letters/r.webp" alt="R" style="width: 55px;">
+            <img src="top letters/y.webp" alt="Y" style="width: 55px;">
         </div>
-        
-        <!-- Right Section -->
-        <div style="display: flex; align-items: flex-start; justify-content: center; padding-top: 60px;">
-            <div style="max-width: 400px; background: white; padding: 30px; border: 3px solid #333; transform: rotate(-1deg); box-shadow: 5px 5px 0px #333; position: relative;">
-                
-                <!-- Handwritten style header -->
-                <h1 style="font-size: 1.8rem; color: #333; margin: 0 0 15px 0; line-height: 1.3; font-weight: bold; font-family: 'Courier New', monospace; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #ff8c00;">
-                    Hey there!✋
-                </h1>
-                
-                <!-- Main text with zine styling -->
-                <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 15px 0; font-family: 'Courier New', monospace;">
-                    Just got back from my <span style="background: yellow; padding: 1px 3px; font-weight: bold;">INDUSTRIAL VISIT</span> and wow — as a 4th-year Computer Science student, seeing real-world tech in action was such a game-changer! 
-                </p>
-                
-                <p style="font-size: 1rem; color: #333; line-height: 1.6; margin: 0 0 20px 0; font-family: 'Courier New', monospace;">
-                    Totally inspired to keep learning and pushing myself!⚡
-                </p>
-                
-                <!-- Simple call to action -->
-                <div style="border: 2px dashed #333; padding: 15px; text-align: center; background: #ffc0cb;">
-                    <p style="margin: 0; font-size: 1rem; color: #333; font-weight: bold; font-family: 'Courier New', monospace;">
-                      For all my favorite moments, visit POST.
-                    </p>
-                </div>
-                
-                <!-- Corner decoration -->
-                <div style="position: absolute; top: -5px; right: -5px; background: #ff8c00; width: 15px; height: 15px; transform: rotate(45deg);"></div>
-            </div>
+
+        <!-- Visit -->
+        <div style="display: flex; gap: 4px;">
+            <img src="top letters/v.webp" alt="V" style="width: 55px;">
+            <img src="top letters/i.webp" alt="I" style="width: 55px;">
+            <img src="top letters/s.webp" alt="S" style="width: 55px;">
+            <img src="top letters/i.webp" alt="I" style="width: 55px;">
+            <img src="top letters/t.webp" alt="T" style="width: 55px;">
         </div>
     </div>
-<!--end-->
-    <!-- Footer Section -->
-    <footer style="padding: 40px 0; width: 80%; margin: 0 auto;">
-        
-        <!-- Top border line - Full screen width -->
-        <hr style="border: none; border-top: 2px solid #333; margin: 0 0 30px 0; width: 100%;">
-        
-        <!-- Container for content -->
-        <div style="max-width: 2300px; margin: 0 auto; padding: 0 20px;">
-            
-            <!-- Main footer content -->
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
-                
-                <!-- Left side text -->
-                <div>
-                    <p style="margin: 0 0 10px 0; font-size: 18px; color: #333; font-weight: normal;">
-                        Appreciate you stopping by!
-                    </p>
-                    <p style="margin: 0; font-size: 18px; font-weight: bold;">
-                        <span style="color: #ff8c00;">Ready</span> 
-                        <span style="color: #333;">to</span> 
-                        <span style="color: #007bff;">team up</span><span style="color: #333;">? Let's</span> 
-                        <span style="color: #333;">create</span> 
-                        <span style="color: #e91e63;">something awesome</span> 
-                        <span style="color: #333;">together!</span>
-                    </p>
+</section>
+
+<!-- Hero Section -->
+<section class="hero" style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; padding: 20px 40px; width: 100%; max-width: 1200px; margin: 0 auto; gap: 20px;">
+
+    <!-- Left Side -->
+    <div class="hero-left" style="flex: 1; min-width: 280px;">
+
+        <div class="speech-bubble" style="font-size: 0.55rem; padding: 8px 14px; max-width: 200px; border-radius: 22px; box-shadow: 3px 3px 0px #1a1a1a;">
+            You can call me
+        </div>
+
+        <!-- Elouisa letters -->
+        <div class="name-letters" style="display: flex; gap: 3px; flex-wrap: wrap; margin-top: 8px;">
+            <img src="zine letters/e.webp" alt="E" style="width: 25px;">
+            <img src="zine letters/l.webp" alt="l" style="width: 25px;">
+            <img src="zine letters/elO.png" alt="o" style="width: 25px;">
+            <img src="zine letters/u.webp" alt="u" style="width: 25px;">
+            <img src="zine letters/i.webp" alt="i" style="width: 25px;">
+            <img src="zine letters/s.webp" alt="s" style="width: 25px;">
+            <img src="zine letters/a.webp" alt="a" style="width: 25px;">
+            <div style="padding: 10px;">
+
+</div>
+             <img src="zine letters/j.webp" alt="j" style="width: 25px;">
+            <img src="zine letters/o for joy.webp" alt="o" style="width: 25px;">
+            <img src="zine letters/y new.png" alt="y" style="width: 25px;">
+            <img src="zine letters/heart.webp" alt="heart" style="width: 30px;">
+        </div>
+
+       
+    </div>
+
+    <!-- Right Side (Blog Card) -->
+    <div class="blog-card" style="flex: 1; min-width: 320px; font-size: 1rem; line-height: 1.5;">
+        <h2 style="margin: 0 0 10px; font-size: 1.5rem;">Hey there! ✋</h2>
+        <p>Just got back from my <span class="highlight">INDUSTRIAL VISIT</span> and wow — as a 4th-year Computer Science student, seeing real-world tech in action was such a game-changer!</p>
+        <p>Totally inspired to keep learning and pushing myself! ⚡</p>
+        <div class="cta-box" style="margin-top: 12px;">
+            <p><strong>For all my favorite moments, scroll down to explore each company visit!</strong></p>
+        </div>
+    </div>
+
+</section>
+
+</section>
+
+<br><br><br><br>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Article Header -->
+        <header class="article-header">
+            <h1>My Industrial Visit Journey 🏢</h1>
+            <p>Click on each company to read about my amazing experiences across 6 different tech companies!</p>
+        </header>
+
+        <!-- Company Cards Grid -->
+        <div class="companies-grid">
+            <!-- Foundever -->
+            <div class="company-card foundever" onclick="openModal('foundever')">
+                <div class="company-header">
+                   
+                    <h3 class="company-title">🚀 Foundever Philippines</h3>
                 </div>
-                
-                <!-- Right side icons -->
-                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 15px;">
+                <div class="date-badge">Day 1 AM • June 09, 2025</div>
+                <p class="company-description">A BPO with decades of leadership in the customer experience industry!</p>
+                <div class="tags">
+                    <span class="tag">Customer Service</span>
+                    <span class="tag">BPO</span>
+                    <span class="tag">Global Operations</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+
+            <!-- Google -->
+            <div class="company-card google" onclick="openModal('google')">
+                <div class="company-header">
+                   
+                    <h3 class="company-title">📊 Google Philippines</h3>
+                </div>
+                <div class="date-badge">Day 1 PM • June 09, 2025</div>
+                <p class="company-description">A company focusing on online advertising, search engine technology, cloud computing, and more!</p>
+                <div class="tags">
+                    <span class="tag">Search Engines</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Cloud Computing</span>
+                    <span class="tag">Innovation</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+
+            <!-- Teleperformance -->
+            <div class="company-card teleperformance" onclick="openModal('teleperformance')">
+                <div class="company-header">
                     
-                    <!-- Social icons -->
-                    <div style="display: flex; gap: 10px;">
-                        <a href="mailto:" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 18px;">
-                            ✉
-                        </a>
-                        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-weight: bold; font-size: 14px;">
-                            in
-                        </a>
-                        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 2px solid #333; border-radius: 50%; color: #333; text-decoration: none; font-size: 18px;">
-                            📷
-                        </a>
+                    <h3 class="company-title">☁️ Teleperformance Philippines</h3>
+                </div>
+                <div class="date-badge">Day 2 AM • June 10, 2025</div>
+                <p class="company-description">A Front-Row Seat to the Future of Work: Our Eye-Opening Journey Inside Teleperformance!</p>
+                <div class="tags">
+                    <span class="tag">Customer Experience</span>
+                    <span class="tag">Digital Services</span>
+                    <span class="tag">Global Operations</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+
+            <!-- Kollab -->
+            <div class="company-card kollab" onclick="openModal('kollab')">
+                <div class="company-header">
+                   
+                    <h3 class="company-title">🧪 Kollab Philippines</h3>
+                </div>
+                <div class="date-badge">Day 2 PM • June 10, 2025</div>
+                <p class="company-description">The leading cloud-first IT consulting firm in Southeast Asia</p>
+                <div class="tags">
+                    <span class="tag">Cloud Solutions</span>
+                    <span class="tag">AI & Automation</span>
+                    <span class="tag">Cybersecurity</span>
+                    <span class="tag">Data Analytics</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+
+            <!-- ADB -->
+            <div class="company-card adb" onclick="openModal('adb')">
+                <div class="company-header">
+                   
+                    <h3 class="company-title">🛡️ Asia Development Bank</h3>
+                </div>
+                <div class="date-badge">Day 3 • June 11 AM, 2025</div>
+                <p class="company-description">A leading multilateral development bank!</p>
+                <div class="tags">
+                    <span class="tag">Development Banking</span>
+                    <span class="tag">Digital Transformation</span>
+                    <span class="tag">Climate Action</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+
+            <!-- GameForge -->
+            <div class="company-card gameforge" onclick="openModal('gameforge')">
+                <div class="company-header">
+                   
+                    <h3 class="company-title">🎮 GameForge Studios</h3>
+                </div>
+                <div class="date-badge">Day 6 • Jan 20, 2025</div>
+                <p class="company-description">Epic game development pipeline and multiplayer networking architecture!</p>
+                <div class="tags">
+                    <span class="tag">Game Development</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Multiplayer</span>
+                </div>
+                <p class="read-more">Click to read more →</p>
+            </div>
+        </div>
+
+        <!-- Final Reflection -->
+        <div class="final-reflection">
+            <h2>🌟 What an Amazing Journey!</h2>
+            <p>Six incredible companies, each with their unique approach to technology! From customer experience to game development, from development banking to cloud solutions - this journey has opened my eyes to the endless possibilities in tech! 🚀</p>
+            <a href="#" class="cta-button">📖 Learn More About Me</a>
+        </div>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay">
+        <!-- Foundever Modal -->
+        <div id="foundever-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                  
+                    🚀 Foundever Philippines
+                </h2>
+                <div class="date-badge foundever">Day 1 AM • June 09, 2025</div>
+            </div>
+
+            <div class="modal-content">
+ <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                            <p>
+                                Foundever's global team consists of 170K agents fluent in +60 languages working 
+                                from +120 on-site and hybrid locations spanning 45 countries. With expertise in 
+                                all industries and business stages, they deliver more than nine million customer 
+                                experiences for +750 brands every single day.
+                            </p>
+                        </div>
+
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/foundever2.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>Foundever Philippines, Technopoint Building, Pasig City</p>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+                <div>
+                    
+                </div>
+
+                <div class="section">
+                    <h3>Key Highlights</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <div class="highlight-dot"></div>
+                            <span>Global reach with 170K+ agents</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-dot"></div>
+                            <span>Support in 60+ languages</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-dot"></div>
+                            <span>Presence in 45 countries</span>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-dot"></div>
+                            <span>9M+ daily customer experiences</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"If you want something, stand up, leave the crowd and get it yourself"</blockquote>
+                            <cite class="quote-author">— Sir CQ</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">This phrase really struck a chord with me. It sounds so simple, yet it's one of the hardest things to do — knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Q: Will AI replace me in the workplace? A: No — if you know how to leverage it."</blockquote>
+                            <cite class="quote-author">— Foundever Speaker</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">AI is just a tool. When you embrace it and use it to enhance your skills, you'll stay valuable. It's not about competing with AI — it's about working alongside it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Key Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-item">
+                            <svg class="insight-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            <span class="insight-text">Motivation and self-determination are key to career success</span>
+                        </div>
+                        <div class="insight-item">
+                            <svg class="insight-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            <span class="insight-text">AI is a tool to enhance human capabilities, not replace them</span>
+                        </div>
+                        <div class="insight-item">
+                            <svg class="insight-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            <span class="insight-text">Customer experience remains fundamentally human-centered</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 Foundever Visit Photos</h3>
+                    <div class="photos-grid">
+                        <div class="photo-card">
+                            <img src="company_img/foundever1.jpg" alt="Foundever Philippines Building">
+                            <div class="photo-caption">
+                                <p>We're here!</p>
+                            </div>
+                        </div>
+                      
+                        <div class="photo-card">
+                            <img src="company_img/foundever3.jpg" alt="Another group picture">
+                            <div class="photo-caption">
+                                <p>Group Picture❤️</p>
+                            </div>
+                        </div>
+                         <div class="photo-card">
+                            <img src="company_img/foundever5.jpg" alt="Another group picture">
+                            <div class="photo-caption">
+                                <p>Another Group Picture</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Google Modal -->
+        <div id="google-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
             
-            <!-- Bottom copyright line -->
-            <div style="text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
-                <p style="margin: 0; font-size: 16px; color: #666;">
-                    Made with ❤️🎵 by Elouisa © 2025
-                </p>
+            <div class="modal-header">
+                <h2 class="modal-title">
+                  
+                    📊 Google Philippines
+                </h2>
+                <div class="date-badge google">Day 1 PM • June 09, 2025</div>
+            </div>
+
+            <div class="modal-content">
+              
+
+                 <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                                               <p>In his presentation, Atty. Gonzalez shed light on Google's journey as a global innovation leader, highlighting how Artificial Intelligence powers everyday tools like Search, Translate, and Assistant.</p>
+                    <p>He also emphasized Google's efforts toward digital inclusion, its collaborations to advance digital skills and economic growth in the Philippines, and the critical need for ethical and transparent tech governance in today's digital age.</p>
+                </div>
+
+
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/google3.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>Google Philippines, Bonifacio Global City (BGC), Taguig City</p>
+                        </div>
+                    </div>
+                </div>
+                 </div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"To organize the world's information and make it universally accessible and useful."</blockquote>
+                            <cite class="quote-author">— Google Inc.</cite>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Want to land a job? UPSKILL! Take the time to invest in yourself — learn, grow, and explore new things that will enhance your skill set."</blockquote>
+                            <cite class="quote-author">— Atty. Gonzalez</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">Google's Internal Cultural Values: Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. The 'think 10x' principle really stuck with me - not 10% better but 10x better when solving problems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 Google Visit Photos</h3>
+                    <div class="photos-grid">
+                        <div class="photo-card">
+                            <img src="company_img/google4.jpg" alt="Google Office">
+                            <div class="photo-caption">
+                                <p>Such a dream to be here!</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/google2.jpg" alt="Android Robot">
+                            <div class="photo-caption">
+                                <p>me and Android Robot hehe</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-card">
+                            <img src="company_img/google5.jpg" alt="Group photo">
+                            <div class="photo-caption">
+                                <p>Ofcourse, groupiee!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
+
+        <!-- Teleperformance Modal -->
+        <div id="teleperformance-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                   
+                    ☁️ Teleperformance Philippines
+                </h2>
+                <div class="date-badge teleperformance">Day 2 AM • June 10, 2025</div>
+            </div>
+
+            <div class="modal-content">
+                
+
+<div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                            <p>Teleperformance is a global leader in digitally integrated business services, providing customer experience management, technical support, and back-office solutions powered by innovation and human connection.</p>
+                </div>
+
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/tp6.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>Teleperformance (TP) Philippines at SM Aura Office, Bonifacio Global City (BGC), Taguig City. </p>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Soft skills are essential"</blockquote>
+                            <cite class="quote-author">— Ms. Beatrice Grace Bonjibod, Brand Marketing Specialist @ TP</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">While AI can process data and automate tasks, it lacks empathy. Empathy—the ability to understand and genuinely connect with another person's feelings—remains irreplaceable in customer service, leadership, and human connection.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 Teleperformance Visit Photos</h3>
+                    <div class="photos-grid">
+    
+                        <div class="photo-card">
+                            <img src="company_img/tp1.jpg" alt="Talk with Ms. Bonjibod">
+                            <div class="photo-caption">
+                                <p>The talk with Ms.Bonjibod</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/tp5.jpg" alt="Group waiting">
+                            <div class="photo-caption">
+                                <p>Yey groupiee while waiting for our batch</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/tp4.jpg" alt="TP experience">
+                            <div class="photo-caption">
+                                <p>WOW!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kollab Modal -->
+        <div id="kollab-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    
+                    🧪 Kollab Philippines
+                </h2>
+                <div class="date-badge kollab">Day 2 PM • June 10, 2025</div>
+            </div>
+
+            <div class="modal-content">
+                <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                             <p>A leading cloud-first IT consulting firm in Southeast Asia, based in the Philippines. They help over 1,100 companies with digital transformation—covering AI, cybersecurity, data analytics, application modernization, and managed services.</p>
+                    <p>They're known for working closely with companies of all sizes—from startups to large enterprises—to implement technology that drives efficiency, innovation, and growth.</p>
+                </div>
+
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/kollab4.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>Kollab, located at Greenfield Tower, Mandaluyong City</p>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Perks attract, Culture retains."</blockquote>
+                            <cite class="quote-author">— Ms. Jazmine Calma, Senior Engineer for Quality Assurance @ Kollab</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">While benefits like bonuses and flexible hours can draw people in, it's the workplace culture—how people are treated, valued, and supported—that truly makes them stay.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 Kollab Philippines Visit Photos</h3>
+                    <div class="photos-grid">
+                        <div class="photo-card">
+                            <img src="company_img/kollab1.jpg" alt="Kollab Philippines visit">
+                            <div class="photo-caption">
+                                <p>Amazing experience at Kollab!</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/kollab2.jpg" alt="Kollab team discussion">
+                            <div class="photo-caption">
+                                <p>Groupiee</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/kollab5.jpg" alt="Kollab office tour">
+                            <div class="photo-caption">
+                                <p>Kollab’s Chief Scientist and Head of AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADB Modal -->
+        <div id="adb-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    
+                    🛡️ Asia Development Bank
+                </h2>
+                <div class="date-badge adb">Day 3 AM • June 11, 2025</div>
+            </div>
+
+            <div class="modal-content">
+                
+                <div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                           <p>The visit to the Asian Development Bank (ADB) gave students a meaningful glimpse into the bank's legacy, innovation, and global impact. From touring ADB's historical exhibits to engaging with IT leaders, students learned about development banking, digital transformation, and career opportunities in mission-driven organizations.</p>
+                    <p>The event also featured a student project showcase and networking with professionals from ADB, CXC, and IBPAP—making it a truly eye-opening experience.</p>
+                </div>
+
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/adb2.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>Asian Development Bank (ADB), Mandaluyong City</p>
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"What stereotype of your generation or background would you like to challenge?"</blockquote>
+                            <cite class="quote-author">— Event Speaker</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">For me, it's the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 ADB Visit Photos</h3>
+                    <div class="photos-grid">
+                       
+                       
+                        <div class="photo-card">
+                            <img src="company_img/adb7.jpg" alt="ADB History">
+                            <div class="photo-caption">
+                                <p>ADB History</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-card">
+                            <img src="company_img/adb1.jpg" alt="Group pic 1">
+                            <div class="photo-caption">
+                                <p>Group pic </p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="company_img/adb6.jpg" alt="History Gallery">
+                            <div class="photo-caption">
+                                <p>History Gallery</p>
+                            </div>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GameForge Modal -->
+        <div id="gameforge-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    
+                    🎮 GameForge Studios
+                </h2>
+                <div class="date-badge gameforge">Day 6 • Jan 20, 2025</div>
+            </div>
+
+            <div class="modal-content">
+                <div class="section">
+                    <h3>Overview</h3>
+                    <p>GameForge Studios was like stepping into a digital playground! Their game development pipeline is absolutely incredible - from concept art to multiplayer networking, every step was fascinating to watch.</p>
+                    <p>The highlight? I got to playtest their upcoming RPG and even contributed ideas for character mechanics! Seeing how player feedback directly influences game design was amazing.</p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Great games are built on great teams, not just great code"</blockquote>
+                            <cite class="quote-author">— Lead Game Designer at GameForge</cite>
+                        </div>
+                    </div>
+                    <div class="quote-context">
+                        <div class="context-header">
+                            <span class="context-badge">MY TAKE</span>
+                            <p class="context-text">Player experience comes before technical perfection. Multiplayer networking is incredibly complex. Game balancing requires constant iteration. Art and code must work in perfect harmony.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📸 GameForge Studios Visit Photos</h3>
+                    <div class="photos-grid">
+                        <div class="photo-card">
+                            <img src="/placeholder.svg?height=150&width=200" alt="GameForge Studios">
+                            <div class="photo-caption">
+                                <p>Game Development Studio</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="/placeholder.svg?height=150&width=200" alt="Playtesting">
+                            <div class="photo-caption">
+                                <p>Playtesting Session</p>
+                            </div>
+                        </div>
+                        <div class="photo-card">
+                            <img src="/placeholder.svg?height=150&width=200" alt="Team Work">
+                            <div class="photo-caption">
+                                <p>Team Collaboration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>Appreciate you stopping by!</p>
+                <p>
+                    <span class="orange">Ready</span> 
+                    <span>to</span> 
+                    <span class="blue">team up</span><span>? Let's</span> 
+                    <span>create</span> 
+                    <span class="pink">something awesome</span> 
+                    <span>together!</span>
+                </p>
+            </div>
+
+            <div class="social-links">
+                <a href="mailto:" class="social-btn">✉</a>
+                <a href="#" class="social-btn">in</a>
+                <a href="#" class="social-btn">📷</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Made with ❤️🎵 by Elouisa © 2025</p>
+        </div>
     </footer>
 
-    <!-- Add hover effects with CSS -->
-    <style>
-        nav a:hover {
-            background-color: #ffc0cb !important;
-            border: 2px solid #333 !important;
-            transform: translateY(-2px);
+    <script>
+        function openModal(companyId) {
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById(companyId + '-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
-        
-        /* Ensure active link doesn't get affected by hover when it's already active */
-        nav a[href="index.html"]:hover {
-            transform: translateY(-2px);
-        }
-    </style>
 
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            const modals = document.querySelectorAll('[id$="-modal"]');
+            modals.forEach(modal => modal.style.display = 'none');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe company cards for scroll animations
+        document.querySelectorAll('.company-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
