@@ -12,7 +12,7 @@
         }
 body {
     font-family: 'Courier New', monospace;
-    background: linear-gradient(to bottom, #f0c4da, #ffffff, #ffffff);
+    background: linear-gradient(to bottom, #f0c4da, #f1d6e3,#ffffff, #ffffff);
     min-height: 100vh;
     line-height: 1.6;
     color: #1a1a1a;
@@ -160,6 +160,7 @@ body {
             transition: transform 0.3s ease;
             max-width: 500px;
             padding-top: 20px;
+            height: 410px;
         }
 
         .blog-card:hover {
@@ -745,18 +746,15 @@ body {
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        
-    </header>
 
-<section class="intro-section" style="display: flex; flex-direction: column; align-items: center; margin: 20px 0; padding: 0;">
+<section class="intro-section" style="display: flex; flex-direction: column; align-items: center; margin: 20px 0; padding: 0; margin-top: 30px;">
     <!-- BSCS Row -->
     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 6px 0;">
-        <img src="top letters/chunky B.webp" alt="B" style="width: 70px;">
-        <img src="top letters/chunk S.webp" alt="S" style="width: 70px;">
-        <img src="top letters/chunky.webp" alt="C" style="width: 70px;">
-        <img src="top letters/chunk S.webp" alt="S" style="width: 70px;">
+     
+        <img src="top letters/chunky B.webp" alt="B" style="width: 75px;">
+        <img src="top letters/chunk S.webp" alt="S" style="width: 75px;">
+        <img src="top letters/chunky.webp" alt="C" style="width: 75px;">
+        <img src="top letters/chunk S.webp" alt="S" style="width: 75px;">
     </div>
 
     <!-- Industry + Visit Row -->
@@ -785,47 +783,128 @@ body {
 </section>
 
 <!-- Hero Section -->
-<section class="hero" style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; padding: 20px 40px; width: 100%; max-width: 1200px; margin: 0 auto; gap: 20px;">
+<section class="hero" style="
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    flex-wrap: wrap;
+">
 
-    <!-- Left Side -->
-    <div class="hero-left" style="flex: 1; min-width: 280px;">
+    <!-- Left: Elouisa Zine Image with Bubble and Letters -->
+    <div class="hero-left" style="
+        flex: 0 0 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    ">
+        <div style="
+            width: 250px;
+            padding: 12px;
+            border: 4px solid #1a1a1a;
+            border-radius: 14px;
+            box-shadow: 6px 6px 0 #ff69b4;
+            background: #fff;
+            margin-top: 10px;
+            position: relative;
+        ">
 
-        <div class="speech-bubble" style="font-size: 0.55rem; padding: 8px 14px; max-width: 200px; border-radius: 22px; box-shadow: 3px 3px 0px #1a1a1a;">
-            You can call me
+            <!-- Speech Bubble -->
+            <div class="speech-bubble" style="
+                position: absolute;
+                top: -18px;
+                left: -18px;
+                font-size: 0.6rem;
+                padding: 7px 12px;
+                max-width: 170px;
+                border-radius: 20px;
+                border: 2px solid #1a1a1a;
+                box-shadow: 3px 3px 0px #1a1a1a;
+                background: #ff69b4;
+                color: white;
+                font-weight: bold;
+                z-index: 2;
+            ">
+                You can call me
+            </div>
+
+            <!-- Image -->
+            <img src="company_img/elouisa2.jpg" alt="Elouisa" style="
+                width: 100%;
+                border-radius: 6px;
+                display: block;
+            ">
+
+            <!-- Name Caption -->
+            <div style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                justify-content: center;
+                align-items: center;
+                padding-top: 6px;
+                border-top: 2px dashed #1a1a1a;
+                margin-top: 10px;
+            ">
+                <!-- Elouisa -->
+                <img src="zine letters/e.webp" alt="E" style="width: 26px; padding-left: 5px;">
+                <img src="zine letters/l.webp" alt="l" style="width: 26px;">
+                <img src="zine letters/elO.png" alt="o" style="width: 24px;">
+                <img src="zine letters/u.webp" alt="u" style="width: 24px;">
+                <img src="zine letters/i.webp" alt="i" style="width: 26px;">
+                <img src="zine letters/s.webp" alt="s" style="width: 24px;">
+                <img src="zine letters/a.webp" alt="a" style="width: 30px;">
+                <div style="width: 12px;"></div>
+                <img src="zine letters/j.webp" alt="j" style="width: 24px;">
+                <img src="zine letters/o for joy.webp" alt="o" style="width: 24px;">
+                <img src="zine letters/y new.png" alt="y" style="width: 24px;">
+                <img src="zine letters/heart.webp" alt="heart" style="width: 30px;">
+            </div>
         </div>
-
-        <!-- Elouisa letters -->
-        <div class="name-letters" style="display: flex; gap: 3px; flex-wrap: wrap; margin-top: 8px;">
-            <img src="zine letters/e.webp" alt="E" style="width: 25px;">
-            <img src="zine letters/l.webp" alt="l" style="width: 25px;">
-            <img src="zine letters/elO.png" alt="o" style="width: 25px;">
-            <img src="zine letters/u.webp" alt="u" style="width: 25px;">
-            <img src="zine letters/i.webp" alt="i" style="width: 25px;">
-            <img src="zine letters/s.webp" alt="s" style="width: 25px;">
-            <img src="zine letters/a.webp" alt="a" style="width: 25px;">
-            <div style="padding: 10px;">
-
-</div>
-             <img src="zine letters/j.webp" alt="j" style="width: 25px;">
-            <img src="zine letters/o for joy.webp" alt="o" style="width: 25px;">
-            <img src="zine letters/y new.png" alt="y" style="width: 25px;">
-            <img src="zine letters/heart.webp" alt="heart" style="width: 30px;">
-        </div>
-
-       
     </div>
 
-    <!-- Right Side (Blog Card) -->
-    <div class="blog-card" style="flex: 1; min-width: 320px; font-size: 1rem; line-height: 1.5;">
-        <h2 style="margin: 0 0 10px; font-size: 1.5rem;">Hey there! ✋</h2>
-        <p>Just got back from my <span class="highlight">INDUSTRIAL VISIT</span> and wow — as a 4th-year Computer Science student, seeing real-world tech in action was such a game-changer!</p>
+    <!-- Right: Blog Card -->
+    <div class="blog-card" style="
+        flex: 1;
+        min-width: 500px;
+        max-width: calc(100% - 300px);
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 2rem;
+        border: 3px solid #1a1a1a;
+        border-radius: 8px;
+        box-shadow: 6px 6px 0px #ff69b4;
+        transform: rotate(-1deg);
+        transition: transform 0.3s ease;
+        background: #fff;
+    ">
+        <h2 style="margin: 0 0 10px; font-size: 1.6rem; font-weight: bold;">Hey there! ✋</h2>
+        <p>Just got back from my 
+            <span class="highlight" style="
+                background: #ffeb3b;
+                padding: 2px 6px;
+                font-weight: bold;
+                border-radius: 3px;
+            ">INDUSTRIAL VISIT</span> 
+            and wow — as a 4th-year Computer Science student, seeing how real-world tech operates inside actual companies was such a game-changer! From the work culture to the advanced systems they use, it gave me a clearer picture of what’s ahead — and honestly, it got me even more pumped for my future in tech.</p>
         <p>Totally inspired to keep learning and pushing myself! ⚡</p>
-        <div class="cta-box" style="margin-top: 12px;">
+        <div class="cta-box" style="
+            border: 2px dashed #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+            margin-top: 1rem;
+            border-radius: 4px;
+        ">
             <p><strong>For all my favorite moments, scroll down to explore each company visit!</strong></p>
         </div>
     </div>
-
 </section>
+
 
 </section>
 
@@ -926,15 +1005,15 @@ body {
             <div class="company-card gameforge" onclick="openModal('gameforge')">
                 <div class="company-header">
                    
-                    <h3 class="company-title">🎮 GameForge Studios</h3>
+                    <h3 class="company-title">🎮 Microsourcing</h3>
                 </div>
-                <div class="date-badge">Day 6 • Jan 20, 2025</div>
-                <p class="company-description">Epic game development pipeline and multiplayer networking architecture!</p>
+                <div class="date-badge">Day 3 PM • June 11, 2025</div>
+                <p class="company-description">Students Get a Front-Row Seat to the Future of Tech at MicroSourcing HQ in Quezon City!</p>
                 <div class="tags">
-                    <span class="tag">Game Development</span>
-                    <span class="tag">Unity</span>
-                    <span class="tag">C#</span>
-                    <span class="tag">Multiplayer</span>
+                    <span class="tag">Managed Operations</span>
+                    <span class="tag"> Expert Talent</span>
+                    <span class="tag">Flexible Workspaces</span>
+                    
                 </div>
                 <p class="read-more">Click to read more →</p>
             </div>
@@ -1029,7 +1108,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">This phrase really struck a chord with me. It sounds so simple, yet it's one of the hardest things to do — knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears.</p>
+                            <p class="context-text">This phrase really struck a chord with me. It sounds so simple, yet it's one of the hardest things to do — <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">knowing what you truly want, having the courage to step away from the crowd, and going after it despite your fears.</span></p>
                         </div>
                     </div>
                 </div>
@@ -1047,7 +1126,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">AI is just a tool. When you embrace it and use it to enhance your skills, you'll stay valuable. It's not about competing with AI — it's about working alongside it.</p>
+                            <p class="context-text">AI is just a tool. When you embrace it and use it to enhance your skills, you'll stay valuable. It's not about competing with AI — <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">it's about working alongside it.</span></p>
                         </div>
                     </div>
                 </div>
@@ -1159,18 +1238,30 @@ body {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                         <div>
-                            <blockquote class="quote-text">"Want to land a job? UPSKILL! Take the time to invest in yourself — learn, grow, and explore new things that will enhance your skill set."</blockquote>
+                            <blockquote class="quote-text">"Want to land a job? <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">UPSKILL!</span> Take the time to invest in yourself — learn, grow, and explore new things that will enhance your skill set."</blockquote>
                             <cite class="quote-author">— Atty. Gonzalez</cite>
+                        </div>
+                    </div>
+                    
+                </div>
+ <div class="quote-card">
+                    <div class="quote-content">
+                        <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <div>
+                            <blockquote class="quote-text">"Google's Principles"</blockquote>
+                            
                         </div>
                     </div>
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">Google's Internal Cultural Values: Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. The 'think 10x' principle really stuck with me - not 10% better but 10x better when solving problems.</p>
+                            <p class="context-text">Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. Among these principles, the <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">Think 10x</span> mindset really stuck with me — it’s not about aiming to be just 10% better, but striving to be 10 times better. It challenged the way I approach problems: to think bigger, bolder, and more creatively. It’s a reminder to push beyond limitations, question the norm, and pursue solutions that create real impact — because true innovation starts when you stop settling for small improvements and start aiming for breakthroughs.
+</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="section">
                     <h3>📸 Google Visit Photos</h3>
                     <div class="photos-grid">
@@ -1248,7 +1339,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">While AI can process data and automate tasks, it lacks empathy. Empathy—the ability to understand and genuinely connect with another person's feelings—remains irreplaceable in customer service, leadership, and human connection.</p>
+                            <p class="context-text">While AI can process data and automate tasks, it lacks empathy. Empathy—the ability to <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">understand and genuinely connect </span>with another person's feelings—remains irreplaceable in customer service, leadership, and human connection.</p>
                         </div>
                     </div>
                 </div>
@@ -1329,7 +1420,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">While benefits like bonuses and flexible hours can draw people in, it's the workplace culture—how people are treated, valued, and supported—that truly makes them stay.</p>
+                            <p class="context-text">While benefits like bonuses and flexible hours can draw people in, it's the workplace culture—<span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">how people are treated, valued, and supported—that truly makes them stay.</span></p>
                         </div>
                     </div>
                 </div>
@@ -1410,7 +1501,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">For me, it's the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender.</p>
+                            <p class="context-text">For me, it's the belief that computer science is a field only for men. Being in a male-dominated industry, women are often underestimated or assumed to be less capable. <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">I want to challenge that by continuously working on myself—growing my skills, proving my competence, and showing that brilliance in tech knows no gender.</span></p>
                         </div>
                     </div>
                 </div>
@@ -1453,55 +1544,71 @@ body {
             <div class="modal-header">
                 <h2 class="modal-title">
                     
-                    🎮 GameForge Studios
+                    🎮 MicroSourcing
                 </h2>
-                <div class="date-badge gameforge">Day 6 • Jan 20, 2025</div>
+                <div class="date-badge gameforge">Day 3 PM • June 11, 2025</div>
             </div>
 
             <div class="modal-content">
-                <div class="section">
-                    <h3>Overview</h3>
-                    <p>GameForge Studios was like stepping into a digital playground! Their game development pipeline is absolutely incredible - from concept art to multiplayer networking, every step was fascinating to watch.</p>
-                    <p>The highlight? I got to playtest their upcoming RPG and even contributed ideas for character mechanics! Seeing how player feedback directly influences game design was amazing.</p>
+               
+<div class="modal-content" style="display: flex; gap: 20px; align-items: flex-start;">
+    <!-- Text on the left -->
+                        <div class="section" style="max-width: 350px;">
+                            <h3>Overview</h3>
+                            <p>On June 11, 2025, we BSCS students from WMSU had the chance to visit MicroSourcing’s headquarters in Quezon City. From the inspiring talk by their CEO to the company tour and hands-on LinkedIn workshop, the experience gave us a real glimpse into how the IT-BPM industry works. It helped us connect what we’ve learned in class to what companies actually look for—and left us feeling more motivated and career-ready.</p>
                 </div>
 
+                    <!-- Image on the right -->
+                <div class="photos-highlight">
+                    <div class="photo-card">
+                        <img 
+                            src="company_img/ms1.jpg" 
+                            alt="Foundever Philippines Building" 
+                            style="max-width: 400px; max-height: 250px; width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+                        <div class="photo-caption">
+                            <p>MicroSourcing, Global One Center, Eastwood, Quezon City</p>
+                        </div>
+                    </div>
+                </div>
+
+</div>
                 <div class="quote-card">
                     <div class="quote-content">
                         <svg class="quote-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                         <div>
-                            <blockquote class="quote-text">"Great games are built on great teams, not just great code"</blockquote>
-                            <cite class="quote-author">— Lead Game Designer at GameForge</cite>
+                            <blockquote class="quote-text">"Situational Modification"</blockquote>
+                            <cite class="quote-author"></cite>
                         </div>
                     </div>
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">Player experience comes before technical perfection. Multiplayer networking is incredibly complex. Game balancing requires constant iteration. Art and code must work in perfect harmony.</p>
+                            <p class="context-text">One of the speakers mentioned situational modification, and it really stuck with me. It reminded me that growth often comes from moments of discomfort—when we’re placed in new, unfamiliar settings and have to adapt.<span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;"> It’s not always about being fully prepared, but about how we respond when things shift.</span> That insight made me realize that flexibility and resilience are just as important as knowledge and skill.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3>📸 GameForge Studios Visit Photos</h3>
+                    <h3>📸 Microsourcing Visit Photos</h3>
                     <div class="photos-grid">
                         <div class="photo-card">
-                            <img src="/placeholder.svg?height=150&width=200" alt="GameForge Studios">
+                            <img src="company_img/ms2.jpg" alt="GameForge Studios">
                             <div class="photo-caption">
-                                <p>Game Development Studio</p>
+                                <p>Welcome, WMSU CCS!</p>
                             </div>
                         </div>
                         <div class="photo-card">
-                            <img src="/placeholder.svg?height=150&width=200" alt="Playtesting">
+                            <img src="company_img/ms3.jpg"Playtesting">
                             <div class="photo-caption">
-                                <p>Playtesting Session</p>
+                                <p>Discussion</p>
                             </div>
                         </div>
                         <div class="photo-card">
-                            <img src="/placeholder.svg?height=150&width=200" alt="Team Work">
+                            <img src="company_img/ms1.jpg" alt="Team Work">
                             <div class="photo-caption">
-                                <p>Team Collaboration</p>
+                                <p>Group Photo</p>
                             </div>
                         </div>
                     </div>
