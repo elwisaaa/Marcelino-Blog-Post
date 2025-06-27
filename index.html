@@ -398,6 +398,71 @@ body {
             transform: translateY(-1px);
         }
 
+        /* Photo Dump Section */
+        .photo-dump-section {
+            background: #fff;
+            padding: 2rem;
+            border: 3px solid #1a1a1a;
+            text-align: center;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 4px 4px 0px #ff69b4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-dump-section::before {
+            
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        .photo-dump-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0px #ff69b4;
+        }
+
+        .photo-dump-section h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .photo-dump-section p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .photo-dump-preview {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .preview-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #1a1a1a;
+            object-fit: cover;
+            filter: grayscale(50%);
+            transition: all 0.3s ease;
+        }
+
+        .photo-dump-section:hover .preview-photo {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
         /* Modal Styles */
         .modal-overlay {
             display: none;
@@ -627,6 +692,73 @@ body {
             font-weight: bold;
         }
 
+        /* Photo Dump Modal Specific Styles */
+        .photo-dump-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .photo-dump-card {
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 3px 3px 0px #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .photo-dump-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0px #1a1a1a;
+        }
+
+        .photo-dump-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .photo-dump-caption {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .photo-dump-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .location-section {
+            margin-bottom: 3rem;
+        }
+
+        .location-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ff69b4, #ff8c00);
+            border-radius: 8px;
+            color: white;
+            border: 2px solid #1a1a1a;
+        }
+
+        .location-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            border: none;
+            color: white;
+        }
+
+        .location-header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
         /* Footer */
         .footer {
             border-top: 3px solid #1a1a1a;
@@ -741,6 +873,20 @@ body {
 
             .name-letters, .joy-letters {
                 justify-content: center;
+            }
+
+            .photo-dump-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .photo-dump-preview {
+                justify-content: center;
+            }
+
+            .preview-photo {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -890,7 +1036,7 @@ body {
                 font-weight: bold;
                 border-radius: 3px;
             ">INDUSTRY VISIT</span> 
-            and wow — as a 4th-year Computer Science student, seeing how real-world tech operates inside actual companies was such a game-changer! From the work culture to the advanced systems they use, it gave me a clearer picture of what’s ahead — and honestly, it got me even more pumped for my future in tech.</p>
+            and wow — as a 4th-year Computer Science student, seeing how real-world tech operates inside actual companies was such a game-changer! From the work culture to the advanced systems they use, it gave me a clearer picture of what's ahead — and honestly, it got me even more pumped for my future in tech.</p>
         <p>Totally inspired to keep learning and pushing myself! ⚡</p>
         <div class="cta-box" style="
             border: 2px dashed #1a1a1a;
@@ -1023,12 +1169,170 @@ body {
         <div class="final-reflection">
             <h2>🌟 What an Amazing Journey!</h2>
             <p>Six incredible companies, each with their unique approach to technology! From customer experience to game development, from development banking to cloud solutions - this journey has opened my eyes to the endless possibilities in tech! 🚀</p>
-            
+        </div>
+
+        <!-- Photo Dump Section -->
+        <div class="photo-dump-section" onclick="openModal('photodump')">
+            <h2>Who goes on a trip without a photo dump? 📸</h2>
+            <p>Click here to see all the fun moments from my side trips to Tagaytay and Baguio!</p>
+            <div class="photo-dump-preview">
+                <img src="photo_dump/1.jpg" alt="Tagaytay Preview" class="preview-photo">
+                <img src="photo_dump/12.jpg" alt="Baguio Preview" class="preview-photo">
+                <img src="photo_dump/5.jpg" alt="Mountain View" class="preview-photo">
+                <img src="photo_dump/21.jpg" alt="Food Trip" class="preview-photo">
+                <img src="photo_dump/10.jpg" alt="Scenic View" class="preview-photo">
+                <img src="photo_dump/25.jpg" alt="Adventure" class="preview-photo">
+            </div>
         </div>
     </main>
 
     <!-- Modal Overlay -->
     <div id="modalOverlay" class="modal-overlay">
+        <!-- Photo Dump Modal -->
+        <div id="photodump-modal" class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div class="modal-header">
+                <h2 class="modal-title">
+                     Photo Dump - Tagaytay & Baguio Adventures
+                </h2>
+            </div>
+
+            <div class="modal-content">
+                <div class="section">
+                    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                        While we were in Manila for our industry visits, we couldn't resist exploring the beautiful destinations nearby! 
+                        Here are some amazing memories from our side trips to Tagaytay and Baguio! 🌄✨
+                    </p>
+                </div>
+
+                <!-- Tagaytay Section -->
+                <div class="location-section">
+                    <div class="location-header">
+                        <h3>🌋 Tagaytay Adventures</h3>
+                        <p>Cool breeze, stunning views, and amazing food!</p>
+                    </div>
+                    
+                    <div class="photo-dump-grid">
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/10.jpg" alt="Taal Volcano View">
+                            <div class="photo-dump-caption">
+                                <p>Breathtaking view of Taal Volcano! 🌋</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/1.jpg" alt="Tagaytay Ridge">
+                            <div class="photo-dump-caption">
+                                <p>Tagaytay - so refreshing! 🌿</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/32.JPG" alt="Bulalo Food">
+                            <div class="photo-dump-caption">
+                                <p>Sky Ranch Ferriswheel! 🍲</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/2.jpg" alt="Group Photo Tagaytay">
+                            <div class="photo-dump-caption">
+                                <p>Squad goals! 📸</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/7.JPG" alt="Sky Ranch">
+                            <div class="photo-dump-caption">
+                                <p>Ofcourse, fit check🎡</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="photo_dump/29.JPG" alt="Tagaytay Sunset">
+                            <div class="photo-dump-caption">
+                                <p>Can't forget pasalubong ✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baguio Section -->
+                <div class="location-section">
+                    <div class="location-header">
+                        <h3>🏔️ Baguio City Escapade</h3>
+                        <p>Summer capital vibes and mountain adventures!</p>
+                    </div>
+                    
+                    <div class="photo-dump-grid">
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Baguio Session Road">
+                            <div class="photo-dump-caption">
+                                <p>Strolling down Session Road! 🚶‍♀️</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Burnham Park">
+                            <div class="photo-dump-caption">
+                                <p>Peaceful moments at Burnham Park 🌸</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Strawberry Farm">
+                            <div class="photo-dump-caption">
+                                <p>Fresh strawberries picking! 🍓</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Baguio Cathedral">
+                            <div class="photo-dump-caption">
+                                <p>Beautiful Baguio Cathedral ⛪</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Night Market">
+                            <div class="photo-dump-caption">
+                                <p>Night market food adventure! 🌃</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Mountain View">
+                            <div class="photo-dump-caption">
+                                <p>Those mountain views though! 🏔️</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Group Baguio">
+                            <div class="photo-dump-caption">
+                                <p>Making memories in the mountains! 📷</p>
+                            </div>
+                        </div>
+
+                        <div class="photo-dump-card">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Baguio Souvenir">
+                            <div class="photo-dump-caption">
+                                <p>Shopping for souvenirs! 🛍️</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" style="text-align: center; margin-top: 3rem;">
+                    <p style="font-size: 1.1rem; color: #666; font-style: italic;">
+                        These side trips made our industry visit even more memorable! Nothing beats combining learning with adventure! 
+                        Can't wait for the next trip! 🎒💕
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- Foundever Modal -->
         <div id="foundever-modal" class="modal">
             <button class="modal-close" onclick="closeModal()">×</button>
@@ -1257,7 +1561,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. Among these principles, the <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">Think 10x</span> mindset really stuck with me — it’s not about aiming to be just 10% better, but striving to be 10 times better. It challenged the way I approach problems: to think bigger, bolder, and more creatively. It’s a reminder to push beyond limitations, question the norm, and pursue solutions that create real impact — because true innovation starts when you stop settling for small improvements and start aiming for breakthroughs.
+                            <p class="context-text">Think 10x, Fail Fast, Transparency, Voice, Responsibility, Equality. Among these principles, the <span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;">Think 10x</span> mindset really stuck with me — it's not about aiming to be just 10% better, but striving to be 10 times better. It challenged the way I approach problems: to think bigger, bolder, and more creatively. It's a reminder to push beyond limitations, question the norm, and pursue solutions that create real impact — because true innovation starts when you stop settling for small improvements and start aiming for breakthroughs.
 </p>
                         </div>
                     </div>
@@ -1443,7 +1747,7 @@ body {
                         <div class="photo-card">
                             <img src="company_img/kollab5.jpg" alt="Kollab office tour">
                             <div class="photo-caption">
-                                <p>Kollab’s Chief Scientist and Head of AI</p>
+                                <p>Kollab's Chief Scientist and Head of AI</p>
                             </div>
                         </div>
                     </div>
@@ -1555,7 +1859,7 @@ body {
     <!-- Text on the left -->
                         <div class="section" style="max-width: 350px;">
                             <h3>Overview</h3>
-                            <p>On June 11, 2025, we BSCS students from WMSU had the chance to visit MicroSourcing’s headquarters in Quezon City. From the inspiring talk by their CEO to the company tour and hands-on LinkedIn workshop, the experience gave us a real glimpse into how the IT-BPM industry works. It helped us connect what we’ve learned in class to what companies actually look for—and left us feeling more motivated and career-ready.</p>
+                            <p>On June 11, 2025, we BSCS students from WMSU had the chance to visit MicroSourcing's headquarters in Quezon City. From the inspiring talk by their CEO to the company tour and hands-on LinkedIn workshop, the experience gave us a real glimpse into how the IT-BPM industry works. It helped us connect what we've learned in class to what companies actually look for—and left us feeling more motivated and career-ready.</p>
                 </div>
 
                     <!-- Image on the right -->
@@ -1585,7 +1889,7 @@ body {
                     <div class="quote-context">
                         <div class="context-header">
                             <span class="context-badge">MY TAKE</span>
-                            <p class="context-text">One of the speakers mentioned situational modification, and it really stuck with me. It reminded me that growth often comes from moments of discomfort—when we’re placed in new, unfamiliar settings and have to adapt.<span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;"> It’s not always about being fully prepared, but about how we respond when things shift.</span> That insight made me realize that flexibility and resilience are just as important as knowledge and skill.</p>
+                            <p class="context-text">One of the speakers mentioned situational modification, and it really stuck with me. It reminded me that growth often comes from moments of discomfort—when we're placed in new, unfamiliar settings and have to adapt.<span style="background: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-weight: bold;"> It's not always about being fully prepared, but about how we respond when things shift.</span> That insight made me realize that flexibility and resilience are just as important as knowledge and skill.</p>
                         </div>
                     </div>
                 </div>
@@ -1600,7 +1904,7 @@ body {
                             </div>
                         </div>
                         <div class="photo-card">
-                            <img src="company_img/ms3.jpg"Playtesting">
+                            <img src="company_img/ms3.jpg" alt="Playtesting">
                             <div class="photo-caption">
                                 <p>Discussion</p>
                             </div>
@@ -1714,6 +2018,15 @@ body {
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+        // Observe photo dump section for animations
+        const photoDumpSection = document.querySelector('.photo-dump-section');
+        if (photoDumpSection) {
+            photoDumpSection.style.opacity = '0';
+            photoDumpSection.style.transform = 'translateY(20px)';
+            photoDumpSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(photoDumpSection);
+        }
     </script>
 </body>
 </html>
